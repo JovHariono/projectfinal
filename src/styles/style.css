@@ -1,0 +1,811 @@
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+*,
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+.swiper-slide{
+  margin-right: 0 !important;
+  /* width: 180.15px !important; */
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 35%;
+  border: solid;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.container {
+  max-width: 100%;
+}
+.navbar {
+  background-color: blue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  height: 5rem;
+}
+
+.homeIcon:hover {
+  transform: scale(1.03);
+}
+
+.navLeft{
+  display: flex;
+  /* align-items: center; */
+  /* justify-content: center; */
+  gap: 3rem;
+  /* height: ; */
+}
+
+.profile{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.profileLink{
+  color: white;
+  padding: 0.5rem;
+}
+
+.profileUser{
+  color: white;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.profileUser:hover {
+  transform: scale(1.03);
+}
+
+.profileLink:hover {
+  background-color: #E5DCC8;
+  color: black;
+  transition: 0.2s ease-in-out;
+  border-radius: 5%;
+}
+
+.faIndex{
+  font-size: 3rem;
+  color: white;
+}
+
+/* .cart{
+  cursor: pointer;
+}
+
+.cart span:nth-child(2){
+  padding: 0 3px;
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  position: relative;
+  top: -30px;
+} */
+
+.homeLogo {
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  /* width: 5rem;
+    height: 5rem; */
+  object-fit: contain;
+}
+
+.container-card {
+  display: flex;
+  justify-content: center;
+  gap: 20rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.card-slb {
+  background-color: white;
+  /* border-color: black; */
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 1px;
+  width: 300px;
+  height: 300px;
+  /* margin: 150px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+}
+
+.card-slb h2 {
+  text-align: center;
+  font-size: 20px;
+  display: flex;
+}
+
+.slb-image {
+  height: 150px;
+  width: 150px;
+  /* padding-left: 60px;
+  padding-top: 30px;
+  margin-bottom: 50px; */
+}
+
+.card-slb:hover {
+  cursor: pointer;
+  transform: scale(1.03);
+  transition: all is ease;
+}
+
+.benefit {
+  display: flex;
+  justify-content: center;
+  /* margin-top: 50px; */
+  font-size: 24px;
+}
+
+.benefit-container {
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 3rem;
+  /* margin-top: 120px; */
+}
+
+.benefit-image{
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* border: solid; */
+}
+
+.ben-img {
+  width: 8rem;
+  height: 8rem;
+}
+
+.deskripsi-star {
+  /* width: 16rem; */
+  text-align: center;
+  padding-top: 1rem;
+  width: 80%;
+}
+
+/* jaja */
+
+.container-list{
+}
+
+.footer {
+  width: 100%;
+  height: 2rem;
+  background-color: blue;
+}
+
+.containerListMobil {
+  text-decoration: none;
+  color: black;
+  width: 13rem;
+}
+
+.containerListMobil{
+  cursor: pointer;
+}
+
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: relative;
+  width: 28px;
+  height: 20px;
+  top: 11px;
+  left: 20px;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: black;
+}
+
+/* Color/shape of burger icon bars on hover*/
+.bm-burger-bars-hover {
+  background: #a90000;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+  margin-right: 1rem;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+}
+
+/*
+  Sidebar wrapper styles
+  Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+  */
+.bm-menu-wrap {
+  position: fixed;
+  height: 100%;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: white;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: white;
+  padding: 0.8em;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: #0000004d;
+}
+
+.menu-item {
+  text-decoration: none;
+}
+
+.containerSideBar {
+  margin-bottom: 2rem;
+}
+
+.containerLogin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  gap: 2rem;
+}
+
+.containerLoginContent {
+  padding-top: 1rem;
+  display: flex;
+  width: 40%;
+  height: 40rem;
+  border: solid;
+  margin-top: 1rem;
+  border-radius: 1%;
+  margin-bottom: 1rem;
+}
+
+.containerRegisterContent {
+  padding-top: 1rem;
+  display: flex;
+  width: 40%;
+  height: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: solid;
+  border-radius: 1%;
+}
+
+.containerContentK {
+  width: 80%;
+  padding-left: 1.5rem;
+}
+
+.containerImgLoginRegister {
+  width: 40%;
+  height: 40rem;
+  object-fit: contain;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  background-color: white;
+  color: #222222;
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin-top: 10px;
+  width: 100%;
+  height: 2.5rem;
+  /* margin-bottom: 1rem; */
+  border-radius: 1rem;
+}
+
+select{
+  background-color: white;
+  color: #222222;
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin-top: 10px;
+  width: 100%;
+  height: 2.5rem;
+  /* margin-bottom: 1rem; */
+  border-radius: 1rem;
+}
+
+.containerInput{
+  display: flex;
+  flex-direction: column;
+  /* padding-left: 1rem;
+  padding-right: 1rem; */
+  padding-top: 1rem;
+  width: 100%;
+}
+
+.containerRememberInput{
+  display: flex;
+  align-items: center;
+}
+
+.containerInput label {
+  margin-left: 0.5rem;
+}
+
+button {
+  border: none;
+  background-color: black;
+  font-size: 1.1rem;
+  /* margin-left: 1.5rem; */
+  height: 2.5rem;
+  color: white;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  width: 35%;
+  border-radius: 1rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0;
+  display: flex;
+  align-items: flex-start;
+}
+
+.containerCheckbox {
+  display: flex;
+}
+
+.Header1LoginRegister {
+  font-family: "Poppins";
+  font-size: 2rem;
+}
+
+.Header2LoginRegister {
+  font-family: "Poppins";
+  margin-top: 1rem;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.subHeader1LoginRegister {
+  font-family: "Poppins";
+  margin-bottom: 2rem;
+}
+
+.subHeader2LoginRegister {
+  font-family: "Poppins";
+}
+
+.subHeader3LoginRegister {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 2rem;
+}
+
+.containerUCheckbox {
+  display: flex;
+  justify-content: space-between;
+}
+
+.containerCheckbox {
+  display: flex;
+  width: 40%;
+}
+
+.judulCheckbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 0.4rem;
+  padding-left: 0.4rem;
+}
+
+.container-filter-harga{
+  margin-top: 2.5rem;
+}
+
+.error{
+  color: #a90000;
+  font-size: 12px;
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+
+.containerForm{
+  height: auto;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border-style: solid; */
+  margin-bottom: 1rem;
+}
+
+.formPostProduk{
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.containerDeskripsi{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  /* padding-right: 40rem; */
+}
+
+.textDeskripsiProduk{
+  /* padding-right: 39.9rem; */
+}
+
+textarea{
+  width: auto;
+  border-style: solid;
+}
+
+.containerFormValidasiProduk{
+  width: 40%;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.judulForm{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* listPageMobil */
+.contentListPageMobil{
+  display: flex;
+  gap: 3rem;
+  justify-content: space-between;
+}
+
+.filter{
+  width: 20%;
+  height: 100vh;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  background-color: grey;
+}
+
+.pageMobil{
+  width: 75%;
+  padding-left: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container-item {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+}
+
+.containerLinkBeliMobil{
+  display: flex;
+  width: 30%;
+  padding-top: 2rem;
+}
+
+.containerBeliMobil{
+  border: solid;
+  text-decoration: none;
+  border-color: #222222;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.containerBeliMobil:hover {
+  cursor: pointer;
+}
+
+.list{
+  padding: 0;
+  list-style: none;
+  text-align: center;
+  padding-top: 1rem;
+}
+
+.listItem{
+  margin-bottom: 1rem;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* listPageMobil */
+
+/* detailPost */
+.contentDetailPost{
+  display: flex;
+  flex-direction: row;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  gap: 8rem;
+}
+
+.contentKiri{
+  width: 25%;
+  padding-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.containerMapItemDetail{
+  padding: 1rem;
+  width: 80%;
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  border-style: solid;
+}
+
+.textContainerMapItemDetail{
+  padding-top: 1rem;
+  font-size: 18px;
+}
+
+.contentKanan{
+  width: 50%;
+  background-color: lightgray;
+  padding-top: 1rem;
+  border-style: solid;
+  border-radius: 1rem;  
+  /* padding-left: 1rem; */
+}
+
+p{
+  padding-left: 1rem;
+  padding-bottom: 0.2rem;
+}
+
+.containerIcon{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.iconDetailPost{
+  font-size: 2rem;
+}
+
+/* detailPost */
+
+.containerImageIMobil{}
+
+.ImageIMobil{
+  height: 25rem;
+  width: 18rem;
+  object-fit: contain;
+  background-color: white;
+}
+
+.containerImageDetailPost {
+  text-decoration: none;
+  background-color: white;
+  color: black;
+  width: 15rem;
+  height: 15rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageDetailPost{
+  height: 10rem;
+  width: 15rem;
+  object-fit: contain;
+}
+
+/* userDetail */
+.headerUser{
+  padding-top: 3rem;
+}
+
+.headerUserContent{
+  width: 100%;
+  background-color: grey;
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.detailUser{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.verifSeller{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #f5a623;
+  color: white;
+  padding: 5px 10px;
+}
+
+.productSeller{
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.detailsContainer{
+  width: 20%;
+  padding-top: 2rem;
+  padding-left: 1rem;
+}
+
+.details{
+  background-color: grey;
+  height: 15rem;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 1rem;
+}
+
+.userName{
+  font-size: 1.5rem;
+}
+
+.containerDetailsContent{
+  background-color: white;
+  padding: 2rem;
+  padding-left: 0.5rem;
+  width: 90%;
+  border-radius: 1rem;
+  position: relative;
+}
+
+.validasiSeller {
+  font-size: 1.5rem;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 0.5rem;
+}
+
+.validasiSeller:hover {
+  transform: scale(1.03);
+}
+
+.validasiSellerLink{
+  text-decoration: none;
+  color: #222222;
+}
+
+.loadingValidasiSeller{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detailsContent{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.detailsContent2{
+  padding-left: 0.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.2rem;
+}
+
+.faDetail{
+  font-size: 1.5rem;
+}
+
+hr {
+  width: 80%;
+  border: 1px solid black;
+  /* width: 50%; */
+}
+
+.hrDetail{
+  width: 100%;
+}
+
+.deskripsiDetailPost{
+  padding-top: 1rem;
+}
+
+.productsSeller{
+  width: 80%;
+  padding-left: 2rem;
+}
+
+.productsContentContainer{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.deskMobil{
+  padding-left: 0.5rem;
+  color: #222222;
+}
+/* userDetail */

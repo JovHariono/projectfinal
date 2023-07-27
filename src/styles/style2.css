@@ -1,0 +1,63 @@
+.container_Item_Mobil{
+  
+}
+
+.containerItemUtamaItemMobil {
+  display: flex;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+  height: 23rem;
+  background-color: aqua;
+}
+
+.containerImageIMobil {
+  max-width: 100%;
+  width: 16rem;
+  height: 14rem;
+  object-fit: contain;
+  background-color: black;
+}
+
+.subJudulIMobil {
+  font-size: 1.2rem;
+}
+
+.containerIMobil {
+  padding: 0.5rem;
+  border-style: solid;
+  border-radius: 5%;
+  border-width: 0.15rem;
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.containerIMobil:hover {
+  cursor: pointer;
+}
+
+.containerContact {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.containerHalamanContact {
+  border-style: solid;
+  width: 80%;
+  border-radius: 1rem;
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-left: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.containerImageContact {
+  font-size: 3rem;
+}
