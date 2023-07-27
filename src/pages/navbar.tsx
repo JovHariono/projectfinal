@@ -14,6 +14,7 @@ interface INavbarProps {}
 const Navbar: React.FunctionComponent<INavbarProps> = (props) => {
   const [name, setName] = useState("");
   const [user, setUser] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     axios
@@ -23,8 +24,12 @@ const Navbar: React.FunctionComponent<INavbarProps> = (props) => {
       .then((res) => {
         setName(res.data.user.username);
         setUser(true);
+        setIsLoading(false);
       })
-      .catch((err) => console.log(err.message));
+      .catch((err) => {
+        console.log(err.message);
+        setIsLoading(false);
+      });
   }, []);
 
   return (
@@ -33,17 +38,14 @@ const Navbar: React.FunctionComponent<INavbarProps> = (props) => {
         <FontAwesomeIcon className="faIndex" icon={faCar} />
       </Link>
       <div className="navLeft">
-        {/* <div className="cart">
-          <FontAwesomeIcon className="faIndex" icon={faCartShopping} />
-          <span>0</span>
-          </div> */}
-        <div className="profile">
+        { isLoading ? (<div className="loading"> Loading... </div>) :  (<div className="profile">
           {user ? (
             <div className="profileUser">
               <Link href="/userdetail">
-              <FontAwesomeIcon className="faIndex" icon={faCircleUser} />
+                <FontAwesomeIcon className="faIndex" icon={faCircleUser} />
               </Link>
-               {name} </div>
+              {name}{" "}
+            </div>
           ) : (
             <div className="profileUser">
               <FontAwesomeIcon className="faIndex" icon={faCircleUser} />
@@ -55,7 +57,7 @@ const Navbar: React.FunctionComponent<INavbarProps> = (props) => {
               </Link>
             </div>
           )}
-        </div>
+        </div>)}
       </div>
     </div>
   );

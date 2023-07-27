@@ -25,7 +25,21 @@ const ListPageMobil: React.FunctionComponent<IListPageMobilProps> = (props) => {
       .catch((err) => console.log(err.message));
   }, []);
 
-  console.log(products)
+  // Function to filter products based on search query, brand, and price
+  const filteredProducts = products.filter((product) => {
+    const lowerCaseQuery = query.toLowerCase();
+    const lowerCaseBrand = product.brand.toLowerCase();
+    const lowerCaseName = product.name.toLowerCase();
+    const lowerCasePrice = product.price.toString().toLowerCase();
+    const queryNumber = parseFloat(lowerCaseQuery.replace(/[^\d.-]/g, ""));
+
+    return (
+      lowerCaseBrand.includes(lowerCaseQuery) ||
+      lowerCaseName.includes(lowerCaseQuery) ||
+      lowerCasePrice.includes(lowerCaseQuery) ||
+      (product.price >= queryNumber && product.price <= queryNumber)
+    );
+  });
 
   return (
     <div className="container">
@@ -38,30 +52,38 @@ const ListPageMobil: React.FunctionComponent<IListPageMobilProps> = (props) => {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
-          <ul className="list"></ul>
         </div>
         <div className="pageMobil">
-        { products.map((product, index) => {
-          return(
+          {filteredProducts.map((product, index) => (
             <div className="containerLinkBeliMobil" key={index}>
-            <div onClick={() => {
-              router.push({
-                pathname: "/detailpost",
-                query: { productId: product.id }
-              })
-            }} className="containerBeliMobil">
-              <div className="containerContentBeliMobil">
-                <div className="containerImageIMobil">
-                  <Image className="ImageIMobil" src={product.image} alt="Unknown" width={0} height={0}/>
+              <div
+                onClick={() => {
+                  router.push({
+                    pathname: "/detailpost",
+                    query: { productId: product.id },
+                  });
+                }}
+                className="containerBeliMobil"
+              >
+                <div className="containerContentBeliMobil">
+                  <div className="containerImageIMobil">
+                    <Image
+                      className="ImageIMobil"
+                      src={product.image}
+                      alt="Unknown"
+                      width={0}
+                      height={0}
+                    />
+                  </div>
+                  <div className="deskMobil">{product.brand}</div>
+                  <div className="deskMobil">{product.name}</div>
+                  <div className="deskMobil">{`Rp ${product.price.toLocaleString(
+                    "id-ID"
+                  )}`}</div>
                 </div>
-                <div className="deskMobil"> {product.name} </div>
-                <div className="deskMobil"> {product.brand} </div>
-                <div className="deskMobil"> {`Rp ${product.price.toLocaleString('id-ID')}`} </div>
               </div>
             </div>
-            </div>
-          )
-        }) }
+          ))}
         </div>
       </div>
     </div>

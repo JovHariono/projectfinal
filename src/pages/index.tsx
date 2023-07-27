@@ -105,11 +105,7 @@ export default function Home() {
         })}
       </div>
       <div className="container-filter-harga">
-        <h2>Mobil Berdasarkan Harga</h2>
-      </div>
-      <Item />
-      <div className="container-filter-harga">
-        <h2>Mobil Berdasarkan Merk</h2>
+        <h2 className="ListKendaraan">List Semua Kendaraan</h2>
       </div>
       <Item />
       <div className="footer"></div>

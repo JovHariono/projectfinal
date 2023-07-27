@@ -5,6 +5,7 @@ import {
   faEnvelope,
   faLocationDot,
   faCircleCheck,
+  faPen
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect } from "react";
@@ -20,9 +21,12 @@ const UserDetail: React.FunctionComponent<IUserDetailProps> = (props) => {
   const [name, setName] = useState("");
   const [id, setId] = useState("");
   const [email, setEmail] = useState("");
+  const [address, setAddress] = useState("")
+  const [location, setLocation] = useState("")
   const [products, setProducts] = useState<Product[]>([]);
   const [isPending, setIsPending] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [isVerified, setIsVerified] = useState("")
   const router = useRouter();
 
   useEffect(() => {
@@ -48,15 +52,28 @@ const UserDetail: React.FunctionComponent<IUserDetailProps> = (props) => {
         {
           isPending &&
             axios
-              .get(`http://localhost:8001/address/${id}`, {
+              .get(`http://localhost:8001/address/user/${id}`, {
                 withCredentials: true,
               })
               .then((res) => {
-                console.log(res.data);
+                setAddress(res.data.message.address)
+                setLocation(res.data.message.city)
               })
               .catch((err) => {
-                console.log(err);
-                console.log(id)
+                console.log(err);                
+              });
+        }
+        {
+          isPending &&
+            axios
+              .get(`http://localhost:8001/user-verifications/user/${id}`, {
+                withCredentials: true,
+              })
+              .then((res) => {
+                setIsVerified(res.data.status)
+              })
+              .catch((err) => {
+                console.log(err);                
               });
         }
       })
@@ -72,9 +89,11 @@ const UserDetail: React.FunctionComponent<IUserDetailProps> = (props) => {
             <FontAwesomeIcon className="faIndex" icon={faCircleUser} />
             <div className="userName"> {name} </div>
           </div>
-          <Link className="verifSeller" href="/validasiseller">
+          { isVerified === "" && <Link className="verifSeller" href="/validasiseller">
             Be Verified User
-          </Link>
+          </Link>}
+          { isVerified === "Requested" && <div className="verifSeller">Request in process</div> }
+          { isVerified === "Validated" && <div className="verifSeller">Seller Verified</div> }
         </div>
       </div>
       <div className="userContent">
@@ -97,7 +116,7 @@ const UserDetail: React.FunctionComponent<IUserDetailProps> = (props) => {
                         className="faDetail"
                         icon={faLocationDot}
                       />
-                      Undefined
+                      { address !== "" && location !== "" ? (<div> { address }, {location} </div>) : (<div> Undefined </div>) }
                     </div>
                     <div className="validasiSeller">
                       <Link href="/detailseller" className="validasiSellerLink">
@@ -152,8 +171,16 @@ const UserDetail: React.FunctionComponent<IUserDetailProps> = (props) => {
                                     "id-ID"
                                   )}`}{" "}
                                 </div>
-                              </div>
+                              </div>                              
                             </div>
+                            <div className="editUserProduct" onClick={() => {
+                              router.push({
+                                pathname: "editdeleteproduct",
+                                query: { productId: product.id }
+                              })
+                            }}>
+                                <FontAwesomeIcon icon={faPen} />
+                              </div>
                           </div>
                         );
                       })}

@@ -79,8 +79,8 @@ const Item: React.FunctionComponent<IItemProps> = (props) => {
                             height={0}
                           />
                         </div>
-                        <div className="deskMobil"> {product.name} </div>
                         <div className="deskMobil"> {product.brand} </div>
+                        <div className="deskMobil"> {product.name} </div>
                         <div className="deskMobil">
                           {" "}
                           {`Rp ${product.price.toLocaleString("id-ID")}`}{" "}

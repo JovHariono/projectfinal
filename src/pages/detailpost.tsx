@@ -27,10 +27,10 @@ const DetailPost: React.FunctionComponent<IDetailPostProps> = (props) => {
         .then((res) => {
           setProduct(res.data.product);
           setUser(res.data.user)
-          console.log(res.data.user)
           setUsername(res.data.user.username)
           setEmail(res.data.user.email)
           setPhone(res.data.user.phone)
+          console.log(res.data)
         })
         .catch((err) => console.log(err));
   }, [productId]);
