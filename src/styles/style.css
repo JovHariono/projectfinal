@@ -960,9 +960,23 @@ hr {
 }
 
 /* listitemvalidate */
+.containerListItemValidate{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2rem;
+}
+
 .containerContentListItemValidate{
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: blue;
+  height: 100%;
+}
+
+.containerDetailListItemValidate{
+  display: flex;
+  flex-direction: column;
 }
 /* listitemvalidate */

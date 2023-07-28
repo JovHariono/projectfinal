@@ -6,3 +6,10 @@ export interface Product{
     name: string;
     price: number;
 }
+
+export interface Validate{
+    inspection_status: string;
+    product_name: string;
+    product_price: number;
+    image: string
+}
