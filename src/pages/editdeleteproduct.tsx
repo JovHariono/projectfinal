@@ -5,6 +5,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import Image from "next/image";
+import { Route } from "react-router";
 
 interface IEditDeleteProductProps {}
 
@@ -24,22 +25,24 @@ const EditDeleteProduct: React.FunctionComponent<IEditDeleteProductProps> = (
   const { productId } = router.query;
   const [id, setId] = useState("");
   const [isPending, setIsPending] = useState(false);
+  const [isValue, setIsValue] = useState(false);
   const [type, setType] = useState("");
   const [brand, SetBrand] = useState("");
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
-  const [image, setImage] = useState<File | null>(null);
+  const [image, setImage] = useState<any | null>(null);
   const [description, setDescription] = useState("");
 
   const [oldType, setOldType] = useState("");
   const [oldBrand, setOldBrand] = useState("");
   const [oldName, setOldName] = useState("");
-  const [oldPrice, setOldPrice] = useState(0);
-  const [oldImage, setOldImage] = useState("");
+  const [oldPrice, setOldPrice] = useState("");
+  const [oldImage, setOldImage] = useState<any | null>(null);
   const [oldDescription, setOldDescription] = useState("");
 
   const form = useForm<postValues>();
   const { register, handleSubmit, formState } = form;
+  const { errors } = formState
 
   useEffect(() => {
     axios
@@ -64,7 +67,7 @@ const EditDeleteProduct: React.FunctionComponent<IEditDeleteProductProps> = (
             setOldName(res.data.product.name);
             setOldPrice(res.data.product.price);
             setOldImage(res.data.product.image);
-            setOldDescription(res.data.product.decription);
+            setOldDescription(res.data.product.description);
           })
           .catch((err) => {
             console.log(err);
@@ -75,37 +78,51 @@ const EditDeleteProduct: React.FunctionComponent<IEditDeleteProductProps> = (
   const postSubmited = (data: postValues) => {
     console.log("Form Submited", data);
 
-    // axios
-    //   .post(
-    //     "http://localhost:8001/products",
-    //     {
-    //       type,
-    //       brand,
-    //       name,
-    //       price,
-    //       image,
-    //       description,
-    //     },
-    //     {
-    //       withCredentials: true,
-    //       headers: { "Content-Type": "multipart/form-data" },
-    //     }
-    //   )
-    //   .then((res) => {
-    //     if (res.status === 200) {
-    //       console.log("backend",res.data.data);
-    //     }
-    //     console.log("Posting data", res);
-    //     setIsPending(false);
-    //     router.push("/validasiproduk");
-    //   })
-    //   .catch((err) => {
-    //     console.log(err.response.status)
-    //     if(err.response.status === 401){
-    //       alert("login/register dulu")
-    //       router.push('/')
-    //     }
-    //   });
+    if (type.length === 0) {
+      setType(oldType);
+    }
+    if (brand.length === 0) {
+      SetBrand(oldBrand);
+    }
+    if (name === "") {
+      setName(oldName);
+    }
+    if (price === "") {
+      setPrice(oldPrice);
+    }
+    if (image === null) {
+      setImage(oldImage);
+    }
+    if (description === "") {
+      setDescription(oldDescription);
+    }
+
+    axios
+      .put(
+        `http://localhost:8001/products/${productId}`,
+        {
+          type: type || oldType,
+          brand: brand || oldBrand,
+          name: name || oldName,
+          price: price || oldPrice,
+          image: image || oldImage,
+          description: description || oldDescription,
+        },
+        {
+          withCredentials: true,
+          headers: { "Content-Type": "multipart/form-data" },
+        }
+      )
+      .then((res) => {
+        console.log(res.status);
+        if(res.status === 200){
+          alert("Update Berhasil")
+          router.push("/userdetail")
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const deleteProduct = () => {
@@ -115,7 +132,10 @@ const EditDeleteProduct: React.FunctionComponent<IEditDeleteProductProps> = (
         headers: { "Content-Type": "multipart/form-data" },
       })
       .then((res) => {
-        console.log(res);
+        if (res.status === 200) {
+          alert("berhasil delete data");
+          router.push("/userdetail");
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -142,7 +162,7 @@ const EditDeleteProduct: React.FunctionComponent<IEditDeleteProductProps> = (
           </div>
           <div className="detailOldProduct">
             <div>Harga Produk:</div>
-            <div> {`Rp ${oldPrice.toLocaleString("id-ID")}`} </div>
+            <div> {`Rp ${Number(oldPrice).toLocaleString("id-ID")}`} </div>
           </div>
           <div className="detailOldProduct">
             <div>Gambar Produk:</div>
@@ -202,7 +222,7 @@ const EditDeleteProduct: React.FunctionComponent<IEditDeleteProductProps> = (
               type="text"
               id="name"
               {...register("name")}
-              // value={name}
+              value={name}
               onChange={(e) => setName(e.target.value)}
             />
           </div>
@@ -212,24 +232,32 @@ const EditDeleteProduct: React.FunctionComponent<IEditDeleteProductProps> = (
             <input
               type="number"
               id="price"
-              {...register("price")}
+              {...register("price", {
+                // valueAsNumber: true,
+              })}
               value={price}
               onChange={(e) => setPrice(e.target.value)}
             />
           </div>
 
           <div className="containerInput">
-            <label htmlFor="image">Gambar produk</label>
+            <label htmlFor="image">Image produk (Harus Input Lagi)</label>
             <input
               type="file"
               id="image"
-              {...register("image")}
+              {...register("image", {
+                required: {
+                  value: true,
+                  message: "Image is required",
+                },
+              })}
               onChange={(e) => {
                 if (e.target.files && e.target.files.length > 0) {
                   setImage(e.target.files[0]);
                 }
               }}
             />
+            <p className="error"> {errors.image?.message} </p>
           </div>
 
           <div className="containerInput">
@@ -249,6 +277,7 @@ const EditDeleteProduct: React.FunctionComponent<IEditDeleteProductProps> = (
           {/* {isPending && <button>Submiting Product...</button>} */}
         </form>
       </div>
+      <div className="footer"></div>
     </div>
   );
 };

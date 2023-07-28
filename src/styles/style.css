@@ -533,30 +533,59 @@ textarea {
 /* listPageMobil */
 .contentListPageMobil {
   display: flex;
+  flex-direction: column;
   gap: 3rem;
   justify-content: space-between;
   height: 100%;
 }
 
 .filter {
-  width: 20%;
-  height: 4rem;
+  width: 100%;
+  height: 5rem;
   padding-left: 2rem;
   padding-right: 2rem;
   background-color: grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 0.8rem;
 }
 
 .pageMobil {
-  width: 75%;
-  padding-left: 2rem;
+  width: 100%;
+  /* padding-left: 2rem; */
   display: flex;
   flex-wrap: wrap;
+  gap: 1rem;
+  column-gap: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 10rem;
+}
+
+.inputListPage{
+  width: 30%;
 }
 
 .container-item {
   display: flex;
   flex-wrap: wrap;
   width: 80%;
+}
+
+.containerLinkBeliMobilHome{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  border: solid;
+  text-decoration: none;
+  border-color: #222222;
+  border-radius: 1rem;
+  position: relative;
 }
 
 .containerLinkBeliMobil {
@@ -663,6 +692,24 @@ p {
   font-size: 2rem;
 }
 
+.isVerified{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(51, 185, 51);
+  width: 60%;
+  border-radius: 1rem; 
+}
+
+.notVerifed{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5a623 ;
+  width: 60%;
+  border-radius: 1rem;  
+}
+
 /* detailPost */
 
 .containerImageIMobil {
@@ -694,7 +741,7 @@ p {
 
 /* userDetail */
 .headerUser {
-  padding-top: 3rem;
+  /* padding-top: 3rem; */
 }
 
 .headerUserContent {
@@ -713,6 +760,7 @@ p {
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  padding-bottom: 1rem;
 }
 
 .verifSeller {
@@ -771,13 +819,21 @@ p {
   padding: 0.5rem;
 }
 
-.validasiSeller:hover {
+/* .validasiSeller:hover {
   transform: scale(1.03);
-}
+} */
 
 .validasiSellerLink {
   text-decoration: none;
   color: #222222;
+}
+
+.validasiSellerLink:hover {
+  font-size: 1.55rem;
+}
+
+.verifiedAddress{
+  color: rgb(46, 170, 46);
 }
 
 .loadingValidasiSeller {
@@ -830,11 +886,19 @@ hr {
   gap: 2rem;
   column-gap: 4rem;
   padding-top: 2rem;
+  padding-bottom: 1rem;
 }
 
 .deskMobil {
   padding-left: 0.5rem;
   color: #222222;
+}
+
+.noProduct{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30rem;
 }
 /* userDetail */
 
@@ -883,3 +947,22 @@ hr {
   border-color: #222222;
 }
 /* editdeleteproduct */
+
+.listValidate{
+  background-color: #f5a623;
+  color: white;
+  padding: 1rem;
+  border-radius: 2rem;
+}
+
+.linkListValidate{
+  color: white;
+}
+
+/* listitemvalidate */
+.containerContentListItemValidate{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* listitemvalidate */

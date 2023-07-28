@@ -51,11 +51,12 @@ const ListPageMobil: React.FunctionComponent<IListPageMobilProps> = (props) => {
             placeholder="Search..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
+            className="inputListPage"
           />
         </div>
         <div className="pageMobil">
           {filteredProducts.map((product, index) => (
-            <div className="containerLinkBeliMobil" key={index}>
+            <div className="containerLinkBeliMobilHome" key={index}>
               <div
                 onClick={() => {
                   router.push({
@@ -86,6 +87,7 @@ const ListPageMobil: React.FunctionComponent<IListPageMobilProps> = (props) => {
           ))}
         </div>
       </div>
+      {/* <div className="footer"></div> */}
     </div>
   );
 };

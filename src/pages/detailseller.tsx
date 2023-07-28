@@ -76,7 +76,7 @@ const DetailSeller: React.FunctionComponent<IDetailSellerProps> = (props) => {
             <div className="judulForm">Verified Address Form</div>
             <div
               className="containerInput"
-              // style={{ display: "none" }}
+              style={{ display: "none" }}
             >
               <label htmlFor="idseller">Id User</label>
               <input
@@ -147,6 +147,7 @@ const DetailSeller: React.FunctionComponent<IDetailSellerProps> = (props) => {
           </form>
         </div>
       )}
+      <div className="footer"></div>
     </div>
   );
 };

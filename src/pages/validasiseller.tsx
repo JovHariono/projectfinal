@@ -153,6 +153,7 @@ const ValidasiSeller: React.FunctionComponent<IValidasiSellerProps> = (
         {isPending && <button>Submiting Product...</button>}
       </form>
     </div>}
+    <div className="footer"></div>
     </div>
   );
 };

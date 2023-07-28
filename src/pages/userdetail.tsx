@@ -23,6 +23,7 @@ const UserDetail: React.FunctionComponent<IUserDetailProps> = (props) => {
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("")
   const [location, setLocation] = useState("")
+  const [isVerifiedAddress, setIsVerifiedAddress] = useState(false)
   const [products, setProducts] = useState<Product[]>([]);
   const [isPending, setIsPending] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -58,6 +59,7 @@ const UserDetail: React.FunctionComponent<IUserDetailProps> = (props) => {
               .then((res) => {
                 setAddress(res.data.message.address)
                 setLocation(res.data.message.city)
+                setIsVerifiedAddress(true)
               })
               .catch((err) => {
                 console.log(err);                
@@ -89,6 +91,9 @@ const UserDetail: React.FunctionComponent<IUserDetailProps> = (props) => {
             <FontAwesomeIcon className="faIndex" icon={faCircleUser} />
             <div className="userName"> {name} </div>
           </div>
+          <div className="listValidate">
+            <Link className="linkListValidate" href="/listitemvalidate">List Validate Item</Link>
+            </div>
           { isVerified === "" && <Link className="verifSeller" href="/validasiseller">
             Be Verified User
           </Link>}
@@ -119,9 +124,10 @@ const UserDetail: React.FunctionComponent<IUserDetailProps> = (props) => {
                       { address !== "" && location !== "" ? (<div> { address }, {location} </div>) : (<div> Undefined </div>) }
                     </div>
                     <div className="validasiSeller">
-                      <Link href="/detailseller" className="validasiSellerLink">
+                      { isVerifiedAddress && <div className="verifiedAddress"> <FontAwesomeIcon icon={faCircleCheck} /> </div>}
+                      { !isVerified &&  <Link href="/detailseller" className="validasiSellerLink">
                         <FontAwesomeIcon icon={faCircleCheck} />
-                      </Link>
+                      </Link>}
                     </div>
                   </div>
                 </div>
@@ -132,7 +138,7 @@ const UserDetail: React.FunctionComponent<IUserDetailProps> = (props) => {
               {!isLoading && (
                 <div>
                   {products.length == 0 ? (
-                    <div>No Products Available</div>
+                    <div className="noProduct">No Products Posted</div>
                   ) : (
                     <div className="productsContentContainer">
                       {products.map((product, index) => {
@@ -192,6 +198,7 @@ const UserDetail: React.FunctionComponent<IUserDetailProps> = (props) => {
           </div>
         </div>
       </div>
+      <div className="footer"></div>
     </div>
   );
 };
