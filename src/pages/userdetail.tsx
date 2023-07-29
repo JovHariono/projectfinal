@@ -125,7 +125,7 @@ const UserDetail: React.FunctionComponent<IUserDetailProps> = (props) => {
                     </div>
                     <div className="validasiSeller">
                       { isVerifiedAddress && <div className="verifiedAddress"> <FontAwesomeIcon icon={faCircleCheck} /> </div>}
-                      { !isVerified &&  <Link href="/detailseller" className="validasiSellerLink">
+                      { !isVerifiedAddress &&  <Link href="/detailseller" className="validasiSellerLink">
                         <FontAwesomeIcon icon={faCircleCheck} />
                       </Link>}
                     </div>
@@ -165,12 +165,16 @@ const UserDetail: React.FunctionComponent<IUserDetailProps> = (props) => {
                                 </div>
                                 <div className="deskMobil">
                                   {" "}
-                                  {product.name}{" "}
+                                  {product.type}:{" "}
                                 </div>
                                 <div className="deskMobil">
                                   {" "}
                                   {product.brand}{" "}
                                 </div>
+                                <div className="deskMobil">
+                                  {" "}
+                                  {product.name}{" "}
+                                </div>                                
                                 <div className="deskMobil">
                                   {" "}
                                   {`Rp ${product.price.toLocaleString(

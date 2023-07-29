@@ -5,6 +5,7 @@ export interface Product{
     image: string;
     name: string;
     price: number;
+    type: string;
 }
 
 export interface Validate{

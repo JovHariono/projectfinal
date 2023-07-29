@@ -27,6 +27,8 @@ import Link from "next/link";
 import Navbar from "./navbar";
 import axios from "axios";
 import { log } from "console";
+import ItemMobil from "./itemMobil";
+import ItemMotor from "./itemMotor";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -108,6 +110,14 @@ export default function Home() {
         <h2 className="ListKendaraan">List Semua Kendaraan</h2>
       </div>
       <Item />
+      <div className="container-filter-harga">
+        <h2 className="ListKendaraan">List Motor</h2>
+      </div>
+      <ItemMobil />
+      <div className="container-filter-harga">
+        <h2 className="ListKendaraan">List Mobil</h2>
+      </div>
+      <ItemMotor />
       <div className="footer"></div>
     </div>
   );

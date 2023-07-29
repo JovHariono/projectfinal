@@ -52,9 +52,8 @@ const DetailSeller: React.FunctionComponent<IDetailSellerProps> = (props) => {
         }
       )
       .then((res) => {
-        console.log("Posting data", res);
         setIsPending(true);
-        // router.push("/userdetail")
+        router.push("/userdetail")
       })
       .catch((err) => {
         console.log(err);

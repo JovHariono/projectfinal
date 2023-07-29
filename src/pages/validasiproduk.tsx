@@ -233,7 +233,7 @@ const ValidasiProduk: React.FunctionComponent<IValidasiProdukProps> = (
             </div>
 
             <div className="formPostGambarProduk">
-              <label htmlFor="gambarprodukbpkb">Foto BTKB</label>
+              <label htmlFor="gambarprodukbpkb">Foto BPKB</label>
               <input
                 type="file"
                 id="gambarprodukbpkb"

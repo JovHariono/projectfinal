@@ -32,12 +32,14 @@ const ListPageMobil: React.FunctionComponent<IListPageMobilProps> = (props) => {
     const lowerCaseName = product.name.toLowerCase();
     const lowerCasePrice = product.price.toString().toLowerCase();
     const queryNumber = parseFloat(lowerCaseQuery.replace(/[^\d.-]/g, ""));
+    const lowerCaseType = product.type.toLowerCase();
 
     return (
       lowerCaseBrand.includes(lowerCaseQuery) ||
       lowerCaseName.includes(lowerCaseQuery) ||
       lowerCasePrice.includes(lowerCaseQuery) ||
-      (product.price >= queryNumber && product.price <= queryNumber)
+      (product.price >= queryNumber && product.price <= queryNumber) ||
+      lowerCaseType.includes(lowerCaseQuery)
     );
   });
 
@@ -76,6 +78,7 @@ const ListPageMobil: React.FunctionComponent<IListPageMobilProps> = (props) => {
                       height={0}
                     />
                   </div>
+                  <div className="deskMobil">{product.type}:</div>
                   <div className="deskMobil">{product.brand}</div>
                   <div className="deskMobil">{product.name}</div>
                   <div className="deskMobil">{`Rp ${product.price.toLocaleString(

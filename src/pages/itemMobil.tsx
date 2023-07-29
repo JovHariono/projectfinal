@@ -12,14 +12,13 @@ import { useRouter } from "next/router";
 import ImageMobil from "../../public/assets/mobil.png";
 
 //local component
-import ItemMobil from "../cards/productCards/ItemMobil";
 import Link from "next/link";
 import { Product } from "../types";
 import DetailPost from "./detailpost";
 
-interface IItemProps {}
+interface IItemMobilProps {}
 
-const Item: React.FunctionComponent<IItemProps> = (props) => {
+const ItemMobil: React.FunctionComponent<IItemMobilProps> = (props) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [isPending, setIsPending] = useState(true);
   const router = useRouter();
@@ -33,6 +32,8 @@ const Item: React.FunctionComponent<IItemProps> = (props) => {
       })
       .catch((err) => console.log(err));
   }, []);
+
+  const motorProducts = products.filter((product) => product.type === "Mobil");
 
   return (
     <div className="container_Item_Mobil">
@@ -57,7 +58,7 @@ const Item: React.FunctionComponent<IItemProps> = (props) => {
             {products.length == 0 ? (
               <div></div>
             ) : (
-              products.map((product, index) => {
+              motorProducts.map((product, index) => {
                 return (
                   <SwiperSlide key={index}>
                     <div className="containerListMobil">
@@ -99,4 +100,4 @@ const Item: React.FunctionComponent<IItemProps> = (props) => {
   );
 };
 
-export default Item;
+export default ItemMobil;
