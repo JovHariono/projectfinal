@@ -80,7 +80,8 @@ const DetailPost: React.FunctionComponent<IDetailPostProps> = (props) => {
                     className="imageDetailPost"
                   />
                 </div>
-                <div className="textContainerMapItemDetail">{product.name}</div>
+                <div className="textContainerMapItemDetail">{product.type}:</div>
+                <div className="textContainerMapItemDetail2">{product.name}</div>
                 <h3 className="textContainerMapItemDetail">{`Rp ${product.price.toLocaleString(
                   "id-ID"
                 )}`}</h3>

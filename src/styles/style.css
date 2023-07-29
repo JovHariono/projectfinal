@@ -686,6 +686,10 @@ textarea {
   font-size: 18px;
 }
 
+.textContainerMapItemDetail2{
+  font-size: 25px;
+}
+
 .contentKanan {
   width: 50%;
   background-color: lightgray;
