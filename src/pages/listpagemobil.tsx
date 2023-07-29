@@ -56,6 +56,7 @@ const ListPageMobil: React.FunctionComponent<IListPageMobilProps> = (props) => {
             className="inputListPage"
           />
         </div>
+        <div className="judulListPageMobil"> List All Item </div>
         <div className="pageMobil">
           {filteredProducts.map((product, index) => (
             <div className="containerLinkBeliMobilHome" key={index}>

@@ -20,6 +20,13 @@ a {
   /* width: 180.15px !important; */
 }
 
+.judulListPageMobil{
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .form {
   display: flex;
   flex-direction: column;
