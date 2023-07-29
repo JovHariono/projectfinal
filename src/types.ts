@@ -12,4 +12,5 @@ export interface Validate{
     product_name: string;
     product_price: number;
     image: string
+    inspection_id: string;
 }

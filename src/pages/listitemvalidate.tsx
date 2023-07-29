@@ -3,9 +3,10 @@ import Navbar from "./navbar";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
-import { faL } from "@fortawesome/free-solid-svg-icons";
+import { faPen } from "@fortawesome/free-solid-svg-icons";
 import { Validate } from "../types";
 import Image from "next/image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface IListItemValidateProps {}
 
@@ -16,6 +17,7 @@ const ListItemValidate: React.FunctionComponent<IListItemValidateProps> = (
   const [isPending, setIsPending] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [id, setId] = useState("");
+  const router = useRouter();
 
   useEffect(() => {
     axios
@@ -52,9 +54,10 @@ const ListItemValidate: React.FunctionComponent<IListItemValidateProps> = (
     <div className="container">
       <Navbar />
       <div className="containerListItemValidate">
+        <div className="textListItemValidate">List Request Validation</div>
         {isLoading && <div> Loading... </div>}
         {!isLoading && (
-          <div>
+          <div className="containerUtamaContentListItemValidate">
             {products.length == 0 ? (
               <div>No Products</div>
             ) : (
@@ -71,9 +74,24 @@ const ListItemValidate: React.FunctionComponent<IListItemValidateProps> = (
                       />
                     </div>
                     <div className="containerDetailListItemValidate">
-                        { product.product_name }
-                        { product.product_price }
-                        { product.inspection_status }
+                      <div className="detailLIstItemValidate">
+                        Nama Produk: {product.product_name}
+                      </div>
+                      <div className="detailLIstItemValidate">
+                        Harga Produk:{" "}
+                        {`Rp ${product.product_price.toLocaleString("id-ID")}`}
+                      </div>
+                      <div className="detailLIstItemValidateRequest">
+                        {product.inspection_status}
+                      </div>
+                      <div onClick={() => {
+                        router.push({
+                            pathname: "/editvalidateproduct",
+                            query: { inspectionId: product.inspection_id }
+                        })
+                      }} className="editValidateProduct">
+                        <FontAwesomeIcon icon={faPen} />
+                      </div>
                     </div>
                   </div>
                 );
