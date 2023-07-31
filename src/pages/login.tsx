@@ -46,6 +46,7 @@ const Login: React.FunctionComponent<ILoginProps> = (props) => {
         // console.log(res.data);
         console.log(res);
         if(res.status === 200){
+          alert("login berhasil")
           router.push('/')
         }
       })

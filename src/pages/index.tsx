@@ -57,7 +57,8 @@ const dashItems = [
 
 export default function Home() {
   const [name, setName] = useState("");
-  const [user, setUser] = useState(false)
+  const [user, setUser] = useState(false);
+  const [role, SetRole] = useState("")
 
   useEffect(() => {
     axios
@@ -65,8 +66,9 @@ export default function Home() {
         withCredentials: true,
       })
       .then((res) => {
-        // console.log(res.data.user.username);
+        // console.log(res.data.user);
         setName(res.data.user.username)
+        SetRole(res.data.user.role)
         setUser(true)
       })
       .catch((err) => console.log(err.message));
@@ -75,6 +77,16 @@ export default function Home() {
   return (
     <div className="container">
       <Navbar />
+
+      { role === "Admin" ? (
+      <div className="containerAdminPage">
+        <div  className="adminPage">
+        <Link href="/adminpage" className="linkAdminPage">
+        To Admin Page
+        </Link>
+        </div>
+        </div>
+        ) : <div></div>}
 
       <div className="container-card">
         <Link className="card-slb" href="/createpost">

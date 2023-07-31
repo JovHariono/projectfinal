@@ -58,7 +58,7 @@ const ListItemValidate: React.FunctionComponent<IListItemValidateProps> = (
         {isLoading && <div> Loading... </div>}
         {!isLoading && (
           <div className="containerUtamaContentListItemValidate">
-            {products.length == 0 ? (
+            {products == null ? (
               <div>No Products</div>
             ) : (
               products.map((product, index) => {
@@ -84,12 +84,15 @@ const ListItemValidate: React.FunctionComponent<IListItemValidateProps> = (
                       <div className="detailLIstItemValidateRequest">
                         {product.inspection_status}
                       </div>
-                      <div onClick={() => {
-                        router.push({
+                      <div
+                        onClick={() => {
+                          router.push({
                             pathname: "/editvalidateproduct",
-                            query: { inspectionId: product.inspection_id }
-                        })
-                      }} className="editValidateProduct">
+                            query: { inspectionId: product.inspection_id },
+                          });
+                        }}
+                        className="editValidateProduct"
+                      >
                         <FontAwesomeIcon icon={faPen} />
                       </div>
                     </div>

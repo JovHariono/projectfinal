@@ -15,6 +15,7 @@ const Navbar: React.FunctionComponent<INavbarProps> = (props) => {
   const [name, setName] = useState("");
   const [user, setUser] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [role, setRole] = useState("")
 
   useEffect(() => {
     axios
@@ -25,6 +26,7 @@ const Navbar: React.FunctionComponent<INavbarProps> = (props) => {
         setName(res.data.user.username);
         setUser(true);
         setIsLoading(false);
+        setRole(res.data.user.role)
       })
       .catch((err) => {
         console.log(err.message);

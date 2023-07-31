@@ -15,3 +15,17 @@ export interface Validate{
     image: string
     inspection_id: string;
 }
+
+export interface UserValidate{
+    id: number;
+    user_id: number;
+    verification_status: string
+}
+
+export interface ProductValidate{
+    id: number;
+    image: string;
+    inspection_status: string;
+    product_name: string;
+    username: string;
+}

@@ -20,7 +20,7 @@ a {
   /* width: 180.15px !important; */
 }
 
-.judulListPageMobil{
+.judulListPageMobil {
   font-size: 1.3rem;
   display: flex;
   justify-content: center;
@@ -38,7 +38,7 @@ a {
   padding-right: 1rem;
 }
 
-.formValidate{
+.formValidate {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -581,7 +581,7 @@ textarea {
   padding-left: 10rem;
 }
 
-.inputListPage{
+.inputListPage {
   width: 30%;
 }
 
@@ -591,7 +591,7 @@ textarea {
   width: 80%;
 }
 
-.containerLinkBeliMobilHome{
+.containerLinkBeliMobilHome {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -686,7 +686,7 @@ textarea {
   font-size: 18px;
 }
 
-.textContainerMapItemDetail2{
+.textContainerMapItemDetail2 {
   font-size: 25px;
 }
 
@@ -714,22 +714,22 @@ p {
   font-size: 2rem;
 }
 
-.isVerified{
+.isVerified {
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgb(51, 185, 51);
   width: 60%;
-  border-radius: 1rem; 
+  border-radius: 1rem;
 }
 
-.notVerifed{
+.notVerifed {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f5a623 ;
+  background-color: #f5a623;
   width: 60%;
-  border-radius: 1rem;  
+  border-radius: 1rem;
 }
 
 /* detailPost */
@@ -854,7 +854,7 @@ p {
   font-size: 1.55rem;
 }
 
-.verifiedAddress{
+.verifiedAddress {
   color: rgb(46, 170, 46);
 }
 
@@ -916,7 +916,7 @@ hr {
   color: #222222;
 }
 
-.noProduct{
+.noProduct {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -957,41 +957,41 @@ hr {
   padding-right: 1rem;
 }
 
-.detailOldProduct{
+.detailOldProduct {
   display: flex;
   flex-direction: column;
   padding-bottom: 1rem;
 }
 
-.deleteProduct{
+.deleteProduct {
   background-color: red;
   border: solid;
   border-color: #222222;
 }
 /* editdeleteproduct */
 
-.listValidate{
+.listValidate {
   background-color: #f5a623;
   color: white;
   padding: 1rem;
   border-radius: 2rem;
 }
 
-.linkListValidate{
+.linkListValidate {
   color: white;
 }
 
 /* listitemvalidate */
-.containerUtamaContentListItemValidate{
+.containerUtamaContentListItemValidate {
   width: 50%;
   gap: 2rem;
 }
 
-.textListItemValidate{
+.textListItemValidate {
   font-size: 1.2rem;
 }
 
-.containerListItemValidate{
+.containerListItemValidate {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1000,7 +1000,7 @@ hr {
   gap: 2rem;
 }
 
-.containerContentListItemValidate{
+.containerContentListItemValidate {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1012,18 +1012,18 @@ hr {
   padding-right: 2rem;
 }
 
-.containerDetailListItemValidate{
+.containerDetailListItemValidate {
   display: flex;
   flex-direction: column;
   width: 50%;
   gap: 1rem;
 }
 
-.detailLIstItemValidate{
+.detailLIstItemValidate {
   display: flex;
 }
 
-.detailLIstItemValidateRequest{
+.detailLIstItemValidateRequest {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1038,7 +1038,7 @@ hr {
 /* listitemvalidate */
 
 /* editValidateProduct */
-.containerUtamaEditValidateProducts{
+.containerUtamaEditValidateProducts {
   display: flex;
   justify-content: center;
   /* align-items: center; */
@@ -1047,7 +1047,7 @@ hr {
   padding-bottom: 1rem;
 }
 
-.containerKiriEditValidateProducts{
+.containerKiriEditValidateProducts {
   padding-top: 1rem;
   border: solid 1px;
   width: 40%;
@@ -1058,21 +1058,21 @@ hr {
   flex-wrap: wrap;
 }
 
-.HeaderKiriEditValidateProducts{
+.HeaderKiriEditValidateProducts {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.containerMasterGambarEditValidateProduct{
+.containerMasterGambarEditValidateProduct {
   padding-top: 1rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.containerKananEditValidateProducts{
+.containerKananEditValidateProducts {
   padding-top: 1rem;
   border: solid 1px;
   width: 40%;
@@ -1081,11 +1081,11 @@ hr {
   /* align-items: center */
 }
 
-.containerUtamaGambarEditValidateProduct{
+.containerUtamaGambarEditValidateProduct {
   width: 40%;
 }
 
-.containergambarEditValidateProduct{
+.containergambarEditValidateProduct {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -1093,19 +1093,187 @@ hr {
   padding-bottom: 1rem;
 }
 
-.gambarEditValidateProduct{
+.gambarEditValidateProduct {
   width: 10rem;
   height: 10rem;
   object-fit: contain;
 }
 
-.containerUtamaGambarEditValidateProductGdrive{
+.containerUtamaGambarEditValidateProductGdrive {
   width: 40%;
 }
 
-.EditValidateProductLinkGdrive{
-  overflow:  initial;
+.EditValidateProductLinkGdrive {
+  overflow: initial;
   overflow: scroll;
   height: 6rem;
 }
 /* editValidateProduct */
+
+/* adminPage */
+.containerAdminPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+  font-size: 1.5rem;
+}
+
+.adminPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5a623;
+  width: 20%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 1rem;
+}
+
+.linkAdminPage {
+  color: white;
+}
+
+.contentAdminPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+  gap: 30rem;
+  height: 20rem;
+}
+
+.containerLinkAdmin {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+  border: solid;
+  padding: 4rem;
+  border-radius: 2rem;
+  font-weight: bold;
+  color: #222222;
+}
+
+.faiAdmin {
+  font-size: 4rem;
+  padding-bottom: 2rem;
+}
+/* adminPage */
+
+/* adminuserverification */
+.containerAdminUserVerification {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 2rem;
+}
+
+.containerContentAdminUserVerification {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.contentAdminUserVerification {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  border: solid;
+  padding: 2rem;
+  border-radius: 2rem;
+}
+
+.contentAdminUserVerification:hover {
+  cursor: pointer;
+}
+/* adminuserverification */
+
+/* AdminUserVerificationDetail */
+.containerAdminUserVerificationDetail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+}
+
+.containerContentAdminUserVerificationDetail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid;
+  padding: 2rem;
+  border-radius: 2rem;
+  width: 80%;
+}
+
+.judulContainerContentAdminUserVerificationDetail {
+  padding-bottom: 1rem;
+}
+
+.containerDetailContentAdminUserVerificationDetail {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1rem;
+  width: 100%;
+}
+
+.ImageIVerif {
+  height: 40rem;
+  width: 40rem;
+  object-fit: contain;
+  background-color: white;
+}
+
+.cancelVerify {
+  background-color: #a90000;
+}
+
+.containerButtonDetailContentAdminUserVerification {
+  display: flex;
+  gap: 10rem;
+}
+/* AdminUserVerificationDetail */
+
+/* productverification */
+.containerContentAdminProductVerification {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  border: solid;
+  padding: 2rem;
+  border-radius: 2rem;
+  width: 100%;
+}
+
+.containerContentAdminProductVerification:hover {
+  cursor: pointer;
+}
+
+
+/* productverification */
+
+/* productverificationdetail */
+.containerAdminProductVerificationDetail{
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+}
+
+.containerContentAdminProductVerificationDetail{
+  display: flex;
+  justify-content: center;
+  border: solid;
+  width: 90%;
+  border-radius: 2rem;
+  padding: 2rem;
+}
+
+.containerlinkgdriveAdminProductVerificationDetail{
+  padding-bottom: 2rem;
+  padding-top: 0.5rem;
+}
+/* productverificationdetail */
