@@ -74,7 +74,7 @@ const ValidasiSeller: React.FunctionComponent<IValidasiSellerProps> = (
         <div className="judulForm">Verified Seller Form</div>
         <div
           className="containerInput"
-          // style={{ display: "none" }}
+          style={{ display: "none" }}
         >
           <label htmlFor="idseller">Id User</label>
           <input
@@ -153,7 +153,7 @@ const ValidasiSeller: React.FunctionComponent<IValidasiSellerProps> = (
         {isPending && <button>Submiting Product...</button>}
       </form>
     </div>}
-    <div className="footer"></div>
+    {/* <div className="footer"></div> */}
     </div>
   );
 };

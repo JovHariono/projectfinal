@@ -130,7 +130,7 @@ const AdminUserVerificationDetail: React.FunctionComponent<
               <div className="containerButtonDetailContentAdminUserVerification">
                 <button onClick={cancelSubmit} className="cancelVerify">
                   {" "}
-                  Cancel Verify User{" "}
+                  Decline Verify User{" "}
                 </button>
                 <button onClick={verifySubmit}> Verify User </button>
               </div>

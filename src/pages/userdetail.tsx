@@ -5,7 +5,7 @@ import {
   faEnvelope,
   faLocationDot,
   faCircleCheck,
-  faPen
+  faPen,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect } from "react";
@@ -21,13 +21,14 @@ const UserDetail: React.FunctionComponent<IUserDetailProps> = (props) => {
   const [name, setName] = useState("");
   const [id, setId] = useState("");
   const [email, setEmail] = useState("");
-  const [address, setAddress] = useState("")
-  const [location, setLocation] = useState("")
-  const [isVerifiedAddress, setIsVerifiedAddress] = useState(false)
+  const [address, setAddress] = useState("");
+  const [location, setLocation] = useState("");
+  const [isVerifiedAddress, setIsVerifiedAddress] = useState(true);
   const [products, setProducts] = useState<Product[]>([]);
   const [isPending, setIsPending] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [isVerified, setIsVerified] = useState("")
+  const [isVerifPending, setIsVerifPending] = useState(true);
+  const [isVerified, setIsVerified] = useState("");
   const router = useRouter();
 
   useEffect(() => {
@@ -57,12 +58,12 @@ const UserDetail: React.FunctionComponent<IUserDetailProps> = (props) => {
                 withCredentials: true,
               })
               .then((res) => {
-                setAddress(res.data.message.address)
-                setLocation(res.data.message.city)
-                setIsVerifiedAddress(true)
+                setAddress(res.data.message.address);
+                setLocation(res.data.message.city);
+                setIsVerifiedAddress(false);
               })
               .catch((err) => {
-                console.log(err);                
+                console.log(err);
               });
         }
         {
@@ -71,11 +72,12 @@ const UserDetail: React.FunctionComponent<IUserDetailProps> = (props) => {
               .get(`http://localhost:8001/user-verifications/user/${id}`, {
                 withCredentials: true,
               })
-              .then((res) => {
-                setIsVerified(res.data.status)
+              .then((res) => {                
+                setIsVerified(res.data.status);
+                setIsVerifPending(false)
               })
               .catch((err) => {
-                console.log(err);                
+                console.log(err);
               });
         }
       })
@@ -92,13 +94,24 @@ const UserDetail: React.FunctionComponent<IUserDetailProps> = (props) => {
             <div className="userName"> {name} </div>
           </div>
           <div className="listValidate">
-            <Link className="linkListValidate" href="/listitemvalidate">List Validate Item</Link>
+            <Link className="linkListValidate" href="/listitemvalidate">
+              List Validate Item
+            </Link>
+          </div>
+          {isVerified === "" && (
+            <div
+              className="verifSeller"
+              // href="/validasiseller"
+            >
+              be verified user
             </div>
-          { isVerified === "" && <Link className="verifSeller" href="/validasiseller">
-            Be Verified User
-          </Link>}
-          { isVerified === "Requested" && <div className="verifSeller">Request in process</div> }
-          { isVerified === "Validated" && <div className="verifSeller">Seller Verified</div> }
+          )}
+          {isVerified === "Requested" && (
+            <div className="verifSellerRequested">request in process</div>
+          )}
+          {isVerified === "Validated" && (
+            <div className="verifSellerValidated">seller verified</div>
+          )}
         </div>
       </div>
       <div className="userContent">
@@ -121,13 +134,32 @@ const UserDetail: React.FunctionComponent<IUserDetailProps> = (props) => {
                         className="faDetail"
                         icon={faLocationDot}
                       />
-                      { address !== "" && location !== "" ? (<div> { address }, {location} </div>) : (<div> Undefined </div>) }
+                      {address !== "" && location !== "" ? (
+                        <div>
+                          {isVerifiedAddress && <div> Loading... </div>}
+                          {!isVerifiedAddress && (
+                            <div>
+                              {" "}
+                              {address}, {location}{" "}
+                            </div>
+                          )}
+                        </div>
+                      ) : (
+                        <Link
+                          className="undefinedUserDetail"
+                          href="/detailseller"
+                        >
+                          {" "}
+                          Undefined{" "}
+                        </Link>
+                      )}
                     </div>
                     <div className="validasiSeller">
-                      { isVerifiedAddress && <div className="verifiedAddress"> <FontAwesomeIcon icon={faCircleCheck} /> </div>}
-                      { !isVerifiedAddress &&  <Link href="/detailseller" className="validasiSellerLink">
-                        <FontAwesomeIcon icon={faCircleCheck} />
-                      </Link>}
+                        { isVerifPending && <Link className="verifiedSellerIcon" href="/validasiseller">
+                          <FontAwesomeIcon icon={faCircleCheck} />
+                        </Link>}
+                        { isVerified === "Requested" && <div className="verifiedSellerIconRequested"> <FontAwesomeIcon icon={faCircleCheck} /> </div> }
+                        { isVerified === "Validated" && <div className="verifiedSellerIconValidated"> <FontAwesomeIcon icon={faCircleCheck} /> </div> }
                     </div>
                   </div>
                 </div>
@@ -174,23 +206,26 @@ const UserDetail: React.FunctionComponent<IUserDetailProps> = (props) => {
                                 <div className="deskMobil">
                                   {" "}
                                   {product.name}{" "}
-                                </div>                                
+                                </div>
                                 <div className="deskMobil">
                                   {" "}
                                   {`Rp ${product.price.toLocaleString(
                                     "id-ID"
                                   )}`}{" "}
                                 </div>
-                              </div>                              
-                            </div>
-                            <div className="editUserProduct" onClick={() => {
-                              router.push({
-                                pathname: "editdeleteproduct",
-                                query: { productId: product.id }
-                              })
-                            }}>
-                                <FontAwesomeIcon icon={faPen} />
                               </div>
+                            </div>
+                            <div
+                              className="editUserProduct"
+                              onClick={() => {
+                                router.push({
+                                  pathname: "editdeleteproduct",
+                                  query: { productId: product.id },
+                                });
+                              }}
+                            >
+                              <FontAwesomeIcon icon={faPen} />
+                            </div>
                           </div>
                         );
                       })}

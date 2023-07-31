@@ -48,8 +48,6 @@ const ListItemValidate: React.FunctionComponent<IListItemValidateProps> = (
       });
   }, [id]);
 
-  console.log(products);
-
   return (
     <div className="container">
       <Navbar />

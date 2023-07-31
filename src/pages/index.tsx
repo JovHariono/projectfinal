@@ -78,16 +78,6 @@ export default function Home() {
     <div className="container">
       <Navbar />
 
-      { role === "Admin" ? (
-      <div className="containerAdminPage">
-        <div  className="adminPage">
-        <Link href="/adminpage" className="linkAdminPage">
-        To Admin Page
-        </Link>
-        </div>
-        </div>
-        ) : <div></div>}
-
       <div className="container-card">
         <Link className="card-slb" href="/createpost">
           <div className="slb-image slb-1">

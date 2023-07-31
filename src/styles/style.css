@@ -100,11 +100,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-}
-
-.profileUser:hover {
-  transform: scale(1.03);
+  gap: 3rem;
 }
 
 .profileLink:hover {
@@ -112,6 +108,17 @@ a {
   color: black;
   transition: 0.2s ease-in-out;
   border-radius: 5%;
+}
+
+.iconUserDetail{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.iconUserDetail:hover {
+  transform: scale(1.03);
 }
 
 .faIndex {
@@ -718,7 +725,7 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(51, 185, 51);
+  background-color: rgb(46, 170, 46);
   width: 60%;
   border-radius: 1rem;
 }
@@ -789,7 +796,25 @@ p {
   position: absolute;
   bottom: 0;
   right: 0;
+  background-color: #222222;
+  color: white;
+  padding: 5px 10px;
+}
+
+.verifSellerRequested{
+  position: absolute;
+  bottom: 0;
+  right: 0;
   background-color: #f5a623;
+  color: white;
+  padding: 5px 10px;
+}
+
+.verifSellerValidated{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: rgb(46, 170, 46);
   color: white;
   padding: 5px 10px;
 }
@@ -856,6 +881,27 @@ p {
 
 .verifiedAddress {
   color: rgb(46, 170, 46);
+}
+
+.verifiedSellerIcon{
+  color: #222222;
+}
+
+.verifiedSellerIcon:hover {
+  font-size: 1.8rem;
+}
+
+.verifiedSellerIconRequested{
+  color: #f5a623;
+}
+
+.verifiedSellerIconValidated{
+  color: rgb(46, 170, 46);
+}
+
+.undefinedUserDetail{
+  color: #222222;
+  text-decoration: underline;
 }
 
 .loadingValidasiSeller {
@@ -1115,8 +1161,11 @@ hr {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 1rem;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.containerAdminPage:hover {
+  transform: scale(1.03);
 }
 
 .adminPage {
@@ -1124,8 +1173,7 @@ hr {
   justify-content: center;
   align-items: center;
   background-color: #f5a623;
-  width: 20%;
-  padding-top: 1rem;
+  padding: 1rem;
   padding-bottom: 1rem;
   border-radius: 1rem;
 }
