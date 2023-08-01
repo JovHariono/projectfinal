@@ -93,12 +93,14 @@ const UserDetail: React.FunctionComponent<IUserDetailProps> = (props) => {
             <FontAwesomeIcon className="faIndex" icon={faCircleUser} />
             <div className="userName"> {name} </div>
           </div>
-          <div className="listValidate">
+          <div className="containerListValidate">
+            <div className="listValidate">
             <Link className="linkListValidate" href="/listitemvalidate">
               List Validate Item
             </Link>
+            </div>
           </div>
-          {isVerified === "" && (
+          {/* {isVerified === "" && (
             <div
               className="verifSeller"
               // href="/validasiseller"
@@ -111,7 +113,7 @@ const UserDetail: React.FunctionComponent<IUserDetailProps> = (props) => {
           )}
           {isVerified === "Validated" && (
             <div className="verifSellerValidated">seller verified</div>
-          )}
+          )} */}
         </div>
       </div>
       <div className="userContent">
