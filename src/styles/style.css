@@ -819,6 +819,34 @@ p {
   /* padding-top: 3rem; */
 }
 
+.containerProductSold{
+  padding-left: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+.productSold{
+  background-color: #a90000;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  color: white;
+}
+
+.productSoldDetail{
+  background-color: #a90000;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  border-radius: 1rem;
+  color: white;
+}
+
+.containerProductSoldDetail{
+  padding-top: 0.5rem;
+}
+
 .headerUserContent {
   width: 100%;
   background-color: grey;
@@ -1385,3 +1413,20 @@ hr {
   padding-top: 0.5rem;
 }
 /* productverificationdetail */
+
+/* soldproduct */
+.containerUtamaSoldProduct{
+  padding-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.containerSoldProduct{
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  border: solid;
+  padding: 2rem;
+  border-radius: 2rem;
+}
+/* soldproduct */

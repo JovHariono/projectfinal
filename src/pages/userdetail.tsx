@@ -6,7 +6,7 @@ import {
   faLocationDot,
   faCircleCheck,
   faPen,
-  faCartShopping
+  faCartShopping,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect } from "react";
@@ -30,6 +30,7 @@ const UserDetail: React.FunctionComponent<IUserDetailProps> = (props) => {
   const [isLoading, setIsLoading] = useState(true);
   const [isVerifPending, setIsVerifPending] = useState(true);
   const [isVerified, setIsVerified] = useState("");
+  const [isSold, setIsSold] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -49,6 +50,7 @@ const UserDetail: React.FunctionComponent<IUserDetailProps> = (props) => {
               .then((res) => {
                 setProducts(res.data.products);
                 setIsLoading(false);
+                setIsSold(res.data.products.status);
               })
               .catch((err) => console.log(err.message));
         }
@@ -84,6 +86,8 @@ const UserDetail: React.FunctionComponent<IUserDetailProps> = (props) => {
       })
       .catch((err) => console.log(err.message));
   }, [id]);
+
+  // console.log(isSold);
 
   return (
     <div className="container">
@@ -232,6 +236,9 @@ const UserDetail: React.FunctionComponent<IUserDetailProps> = (props) => {
                                   )}`}{" "}
                                 </div>
                               </div>
+                            </div>
+                            <div>
+                              { product.status ? <div className="containerProductSold"> <div className="productSold">Product Sold</div></div> : null }
                             </div>
                             <div
                               className="editUserProduct"

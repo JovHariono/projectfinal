@@ -27,6 +27,7 @@ const DetailPost: React.FunctionComponent<IDetailPostProps> = (props) => {
   const [isLoading, setIsLoading] = useState(true);
   const [status, setStatus] = useState("");
   const { productId } = router.query;
+  const [statusSold, setStatusSold] = useState(false);
 
   useEffect(() => {
     axios
@@ -41,7 +42,8 @@ const DetailPost: React.FunctionComponent<IDetailPostProps> = (props) => {
         setPhone(res.data.user.phone);
         setIsUserId(res.data.user.id);
         setIsPending(true);
-        setStatus(res.data.product.validation_status)
+        setStatus(res.data.product.validation_status);
+        setStatusSold(res.data.product.status);
 
         {
           isPending &&
@@ -80,12 +82,26 @@ const DetailPost: React.FunctionComponent<IDetailPostProps> = (props) => {
                     className="imageDetailPost"
                   />
                 </div>
-                <div className="textContainerMapItemDetail">{product.type}:</div>
-                <div className="textContainerMapItemDetail2">{product.name}</div>
+                <div className="textContainerMapItemDetail">
+                  {product.type}:
+                </div>
+                <div className="textContainerMapItemDetail2">
+                  {product.name}
+                </div>
                 <h3 className="textContainerMapItemDetail">{`Rp ${product.price.toLocaleString(
                   "id-ID"
                 )}`}</h3>
-                { status ? (<div className="isVerified"> verified </div>)  : (<div className="notVerifed"> Not Yet Verified </div>)}
+                {status ? (
+                  <div className="isVerified"> verified </div>
+                ) : (
+                  <div className="notVerifed"> Not Yet Verified </div>
+                )}
+                { !statusSold ? null : (
+                  <div className="containerProductSoldDetail">
+                    {" "}
+                    <div className="productSoldDetail">Product Sold</div>
+                  </div>
+                )}
               </div>
             ) : (
               <div>Loading...</div>
