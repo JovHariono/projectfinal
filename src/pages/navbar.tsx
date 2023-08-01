@@ -5,9 +5,11 @@ import {
   faCartShopping,
   faCircleUser,
   faCar,
+  faArrowLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import * as React from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 interface INavbarProps {}
 
@@ -16,6 +18,8 @@ const Navbar: React.FunctionComponent<INavbarProps> = (props) => {
   const [user, setUser] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [role, setRole] = useState("");
+  const router = useRouter();
+  const isIndexPage = router.pathname === "/";
 
   useEffect(() => {
     axios
@@ -34,11 +38,39 @@ const Navbar: React.FunctionComponent<INavbarProps> = (props) => {
       });
   }, []);
 
+  const signOut = () => {
+    axios
+      .get("http://localhost:8001/auth/logout", {
+        withCredentials: true,
+      })
+      .then((res) => {
+        if(res.status === 200){         
+          alert("logged out") 
+          router.reload()
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <div className="navbar">
-      <Link href="/" className="homeIcon">
-        <FontAwesomeIcon className="faIndex" icon={faCar} />
-      </Link>
+      <div className="navLeftTru">
+        <Link href="/" className="homeIcon">
+          <FontAwesomeIcon className="faIndex" icon={faCar} />
+        </Link>
+        {isIndexPage ? null : (
+          <div
+            className="homeIcon"
+            onClick={() => {
+              router.back();
+            }}
+          >
+            <FontAwesomeIcon className="faIndex" icon={faArrowLeft} />
+          </div>
+        )}
+      </div>
       <div className="navLeft">
         {isLoading ? (
           <div className="loading"> Loading... </div>
@@ -47,23 +79,26 @@ const Navbar: React.FunctionComponent<INavbarProps> = (props) => {
             {user ? (
               <div className="profileUser">
                 <div>
-                {role === "Admin" ? (
-                  <div className="containerAdminPage">
-                    <div className="adminPage">
-                      <Link href="/adminpage" className="linkAdminPage">
-                        To Admin Page
-                      </Link>
+                  {role === "Admin" ? (
+                    <div className="containerAdminPage">
+                      <div className="adminPage">
+                        <Link href="/adminpage" className="linkAdminPage">
+                          To Admin Page
+                        </Link>
+                      </div>
                     </div>
-                  </div>
-                ) : (
-                  <div></div>
-                )}
+                  ) : (
+                    <div></div>
+                  )}
+                </div>
+                <div className="signout" onClick={signOut}>
+                  Sign Out
                 </div>
                 <div className="iconUserDetail">
-                <Link href="/userdetail">
-                  <FontAwesomeIcon className="faIndex" icon={faCircleUser} />
-                </Link>
-                {name}{" "}
+                  <Link href="/userdetail">
+                    <FontAwesomeIcon className="faIndex" icon={faCircleUser} />
+                  </Link>
+                  {name}{" "}
                 </div>
               </div>
             ) : (

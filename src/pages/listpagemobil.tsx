@@ -6,6 +6,8 @@ import { Product } from "../types";
 import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { faCar, faMotorcycle } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface IListPageMobilProps {}
 
@@ -55,6 +57,19 @@ const ListPageMobil: React.FunctionComponent<IListPageMobilProps> = (props) => {
             onChange={(e) => setQuery(e.target.value)}
             className="inputListPage"
           />
+        </div>
+        <div className="containerListPageMobilItem">
+          <Link className="listPageMobilItem" href="/listpagemobilitemmobil">
+            <FontAwesomeIcon icon={faCar} className="listPageMobilItemIcon" />
+            List Mobil
+          </Link>
+          <Link className="listPageMobilItem" href="/listpagemobilitemmotor">
+            <FontAwesomeIcon
+              icon={faMotorcycle}
+              className="listPageMobilItemIcon"
+            />
+            List Motor
+          </Link>
         </div>
         <div className="judulListPageMobil"> List All Item </div>
         <div className="pageMobil">

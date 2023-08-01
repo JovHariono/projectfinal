@@ -6,6 +6,7 @@ import {
   faLocationDot,
   faCircleCheck,
   faPen,
+  faCartShopping
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect } from "react";
@@ -72,9 +73,9 @@ const UserDetail: React.FunctionComponent<IUserDetailProps> = (props) => {
               .get(`http://localhost:8001/user-verifications/user/${id}`, {
                 withCredentials: true,
               })
-              .then((res) => {                
+              .then((res) => {
                 setIsVerified(res.data.status);
-                setIsVerifPending(false)
+                setIsVerifPending(false);
               })
               .catch((err) => {
                 console.log(err);
@@ -95,9 +96,9 @@ const UserDetail: React.FunctionComponent<IUserDetailProps> = (props) => {
           </div>
           <div className="containerListValidate">
             <div className="listValidate">
-            <Link className="linkListValidate" href="/listitemvalidate">
-              List Validate Item
-            </Link>
+              <Link className="linkListValidate" href="/listitemvalidate">
+                List Validate Item
+              </Link>
             </div>
           </div>
           {/* {isVerified === "" && (
@@ -157,11 +158,26 @@ const UserDetail: React.FunctionComponent<IUserDetailProps> = (props) => {
                       )}
                     </div>
                     <div className="validasiSeller">
-                        { isVerifPending && <Link className="verifiedSellerIcon" href="/validasiseller">
+                      {isVerifPending && (
+                        <Link
+                          className="verifiedSellerIcon"
+                          href="/validasiseller"
+                        >
                           <FontAwesomeIcon icon={faCircleCheck} />
-                        </Link>}
-                        { isVerified === "Requested" && <div className="verifiedSellerIconRequested"> <FontAwesomeIcon icon={faCircleCheck} /> </div> }
-                        { isVerified === "Validated" && <div className="verifiedSellerIconValidated"> <FontAwesomeIcon icon={faCircleCheck} /> </div> }
+                        </Link>
+                      )}
+                      {isVerified === "Requested" && (
+                        <div className="verifiedSellerIconRequested">
+                          {" "}
+                          <FontAwesomeIcon icon={faCircleCheck} />{" "}
+                        </div>
+                      )}
+                      {isVerified === "Validated" && (
+                        <div className="verifiedSellerIconValidated">
+                          {" "}
+                          <FontAwesomeIcon icon={faCircleCheck} />{" "}
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -227,6 +243,17 @@ const UserDetail: React.FunctionComponent<IUserDetailProps> = (props) => {
                               }}
                             >
                               <FontAwesomeIcon icon={faPen} />
+                            </div>
+                            <div
+                              className="editUserProduct2"
+                              onClick={() => {
+                                router.push({
+                                  pathname: "soldproduct",
+                                  query: { productId: product.id },
+                                });
+                              }}
+                            >
+                              <FontAwesomeIcon icon={faCartShopping} />
                             </div>
                           </div>
                         );

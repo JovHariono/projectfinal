@@ -61,7 +61,7 @@ const Login: React.FunctionComponent = () => {
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err.message));
 
-      router.push('/login')
+    router.push("/login");
   };
 
   return (
@@ -177,6 +177,12 @@ const Login: React.FunctionComponent = () => {
                     required: {
                       value: true,
                       message: "Nomor HP is required",
+                    },
+                    pattern: {
+                      value: /^08\d{9,11}$/,
+
+                      message:
+                        "Invalid phone number format, phone number must start with '08'",
                     },
                   })}
                   value={phone}

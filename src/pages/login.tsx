@@ -45,13 +45,18 @@ const Login: React.FunctionComponent<ILoginProps> = (props) => {
       .then((res) => {
         // console.log(res.data);
         console.log(res);
-        if(res.status === 200){
-          alert("login berhasil")
-          router.push('/')
+        if (res.status === 200) {
+          alert("login berhasil");
+          router.push("/");
         }
       })
-      .catch((err) => alert("Wrong username/password"));
-
+      .catch((err) => {
+        if (err.message === "Network Error") {
+          alert("Please try again ");
+        } else {
+          alert("Wrong username/password");
+        }
+      });
   };
 
   return (
