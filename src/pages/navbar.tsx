@@ -83,7 +83,7 @@ const Navbar: React.FunctionComponent<INavbarProps> = (props) => {
                     <div className="containerAdminPage">
                       <div className="adminPage">
                         <Link href="/adminpage" className="linkAdminPage">
-                          To Admin Page
+                          Verification Request
                         </Link>
                       </div>
                     </div>

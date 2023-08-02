@@ -6,7 +6,8 @@ export interface Product{
     name: string;
     price: number;
     type: string;
-    status: string
+    status: string;
+    validation_status: boolean;
 }
 
 export interface Validate{

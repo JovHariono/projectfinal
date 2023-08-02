@@ -31,7 +31,7 @@ const ListPageItemMobil: React.FunctionComponent<IListPageItemMobilProps> = (
             })
     }, [])
 
-    const filteredProducts = products.filter((product) => product.type === "Mobil")
+    const filteredProducts = products.filter((product) => product.type === "Mobil" && product.validation_status === true)
 
     const filteredProductsMobil = filteredProducts.filter((filteredProduct) => {
         const lowerCaseQuery = query.toLowerCase();

@@ -28,7 +28,9 @@ const ListPageMobil: React.FunctionComponent<IListPageMobilProps> = (props) => {
   }, []);
 
   // Function to filter products based on search query, brand, and price
-  const filteredProducts = products.filter((product) => {
+  const filteredProductVerified = products.filter((product) => product.validation_status === true)
+
+  const filteredProducts = filteredProductVerified.filter((product) => {
     const lowerCaseQuery = query.toLowerCase();
     const lowerCaseBrand = product.brand.toLowerCase();
     const lowerCaseName = product.name.toLowerCase();

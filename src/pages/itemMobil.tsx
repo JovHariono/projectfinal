@@ -35,6 +35,8 @@ const ItemMobil: React.FunctionComponent<IItemMobilProps> = (props) => {
 
   const motorProducts = products.filter((product) => product.type === "Mobil");
 
+  const motorProductsVerified = motorProducts.filter((product) => product.validation_status === true)
+
   return (
     <div className="container_Item_Mobil">
       {isPending && <div>Loading....</div>}
@@ -58,7 +60,7 @@ const ItemMobil: React.FunctionComponent<IItemMobilProps> = (props) => {
             {products.length == 0 ? (
               <div></div>
             ) : (
-              motorProducts.map((product, index) => {
+              motorProductsVerified.map((product, index) => {
                 return (
                   <SwiperSlide key={index}>
                     <div className="containerListMobil">

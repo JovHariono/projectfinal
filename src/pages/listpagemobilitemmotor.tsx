@@ -30,7 +30,7 @@ const ListPageMobilItemMotor: React.FunctionComponent<
   }, []);
 
   const filteredProducts = products.filter(
-    (product) => product.type === "Motor"
+    (product) => product.type === "Motor" && product.validation_status === true
   );
 
   const filteredProductsMobil = filteredProducts.filter((filteredProduct) => {
@@ -64,7 +64,7 @@ const ListPageMobilItemMotor: React.FunctionComponent<
             className="inputListPage"
           />
         </div>
-        <div className="judulListPageMobil"> List Item Mobil </div>
+        <div className="judulListPageMobil"> List Item Motor </div>
         <div className="pageMobil">
           {filteredProductsMobil.map((filteredProduct, index) => (
             <div className="containerLinkBeliMobilHome" key={index}>

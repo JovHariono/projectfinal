@@ -34,6 +34,8 @@ const Item: React.FunctionComponent<IItemProps> = (props) => {
       .catch((err) => console.log(err));
   }, []);
 
+  const filterProductVerif = products.filter((product) => product.validation_status === true)
+
   return (
     <div className="container_Item_Mobil">
       {isPending && <div>Loading....</div>}
@@ -54,10 +56,10 @@ const Item: React.FunctionComponent<IItemProps> = (props) => {
             modules={[Autoplay, Pagination, Navigation]}
             className="mySwiper"
           >
-            {products.length == 0 ? (
+            {filterProductVerif.length == 0 ? (
               <div></div>
             ) : (
-              products.map((product, index) => {
+              filterProductVerif.map((product, index) => {
                 return (
                   <SwiperSlide key={index}>
                     <div className="containerListMobil">
