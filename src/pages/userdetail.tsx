@@ -251,7 +251,7 @@ const UserDetail: React.FunctionComponent<IUserDetailProps> = (props) => {
                             >
                               <FontAwesomeIcon icon={faPen} />
                             </div>
-                            <div
+                            { !product.status ? (<div
                               className="editUserProduct2"
                               onClick={() => {
                                 router.push({
@@ -261,7 +261,7 @@ const UserDetail: React.FunctionComponent<IUserDetailProps> = (props) => {
                               }}
                             >
                               <FontAwesomeIcon icon={faCartShopping} />
-                            </div>
+                            </div>) : null}
                           </div>
                         );
                       })}
