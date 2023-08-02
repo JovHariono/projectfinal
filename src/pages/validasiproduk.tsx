@@ -253,7 +253,7 @@ const ValidasiProduk: React.FunctionComponent<IValidasiProdukProps> = (
             </div>
 
             <div className="containerInput">
-              <label htmlFor="linkgdvalidasi">Link Gdrive</label>
+              <label htmlFor="linkgdvalidasi">Video Mobil/Motor (Link Gdrive)</label>
               <input
                 type="text"
                 id="linkgdvalidasi"
