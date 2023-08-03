@@ -80,7 +80,7 @@ const ListItemValidate: React.FunctionComponent<IListItemValidateProps> = (
                         {`Rp ${product.product_price.toLocaleString("id-ID")}`}
                       </div>
                       <div className="detailLIstItemValidateRequest">
-                        {product.inspection_status}
+                        validation Status: {product.inspection_status}
                       </div>
                       <div
                         onClick={() => {

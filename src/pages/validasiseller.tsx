@@ -149,8 +149,8 @@ const ValidasiSeller: React.FunctionComponent<IValidasiSellerProps> = (
           <p className="error"> {errors.situ?.message} </p>
         </div>
 
-        {!isPending && <button>Submit Product</button>}
-        {isPending && <button>Submiting Product...</button>}
+        {!isPending && <button>Submit Form</button>}
+        {isPending && <button>Submiting Form...</button>}
       </form>
     </div>}
     {/* <div className="footer"></div> */}

@@ -46,8 +46,7 @@ const AdminProductVerification: React.FunctionComponent<
                         query: { productId: product.id }
                     })
                 }}
-              >
-                <div> Product-Inspection ID: { product.id }</div>
+              >                
                 <div> Product Name: { product.product_name }</div>
                 <div> Status: { product.inspection_status }</div>
               </div>

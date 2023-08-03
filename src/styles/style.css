@@ -957,7 +957,7 @@ p {
 }
 
 .verifiedSellerIcon{
-  color: #222222;
+  color: red;
 }
 
 .verifiedSellerIcon:hover {
@@ -1156,8 +1156,9 @@ hr {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f5a623;
-  width: 40%;
+  background-color: blue;
+  color: white;
+  width: 60%;
   border-radius: 1rem;
 }
 
@@ -1429,3 +1430,25 @@ hr {
   border-radius: 2rem;
 }
 /* soldproduct */
+
+
+@media only screen and (max-width: 1200px){
+.containerMapItemDetail{
+  width: 85%;
+}
+
+.contentKiri{
+  width: 30%;
+}
+
+.containerLinkBeliMobil{
+  width: 36%;
+}
+
+.detailsContainer{
+  width: 25%;
+}
+
+
+
+}

@@ -46,13 +46,14 @@ const Navbar: React.FunctionComponent<INavbarProps> = (props) => {
       .then((res) => {
         if(res.status === 200){         
           alert("logged out") 
-          router.push("/")
           router.reload()
         }
       })
       .catch((err) => {
         console.log(err);
       });
+
+      router.push("/")
   };
 
   return (
