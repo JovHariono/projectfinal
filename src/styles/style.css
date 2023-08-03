@@ -637,20 +637,19 @@ textarea {
   position: relative;
 }
 
+.containerEditUserProduct{
+  display: flex;
+  justify-content: flex-end ;
+  gap: 1.5rem;
+  padding-right: 1rem;
+}
+
 .editUserProduct {
-  position: absolute;
-  right: 0;
-  bottom: 0.5rem;
-  padding-right: 2rem;
-  width: 5% ;
+  
 }
 
 .editUserProduct2{
-  position: absolute;
-  right: 0;
-  bottom: 0.5rem;
-  padding-right: 4rem;
-  width: 5% ;
+  
 }
 
 .editUserProduct2:hover {

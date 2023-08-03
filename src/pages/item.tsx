@@ -57,7 +57,7 @@ const Item: React.FunctionComponent<IItemProps> = (props) => {
             className="mySwiper"
           >
             {filterProductVerif.length == 0 ? (
-              <div></div>
+              <div>No Product</div>
             ) : (
               filterProductVerif.map((product, index) => {
                 return (

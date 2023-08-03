@@ -58,17 +58,17 @@ const CreatePost: React.FunctionComponent<ICreatePostProps> = (props) => {
       )
       .then((res) => {
         if (res.status === 200) {
-          console.log("backend",res.data.data);
+          console.log("backend", res.data.data);
+          setIsPending(false);
+          router.push("/validasiproduk");
+          alert("posting produk berhasil");
         }
-        console.log("Posting data", res);
-        setIsPending(false);
-        router.push("/validasiproduk");
       })
       .catch((err) => {
-        console.log(err.response.status)
-        if(err.response.status === 401){
-          alert("login/register dulu")
-          router.push('/')
+        console.log(err.response.status);
+        if (err.response.status === 401) {
+          alert("login/register dulu");
+          router.push("/");
         }
       });
   };

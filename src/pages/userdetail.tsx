@@ -240,6 +240,7 @@ const UserDetail: React.FunctionComponent<IUserDetailProps> = (props) => {
                             <div>
                               { product.status ? <div className="containerProductSold"> <div className="productSold">Product Sold</div></div> : null }
                             </div>
+                            <div className="containerEditUserProduct">
                             <div
                               className="editUserProduct"
                               onClick={() => {
@@ -262,6 +263,7 @@ const UserDetail: React.FunctionComponent<IUserDetailProps> = (props) => {
                             >
                               <FontAwesomeIcon icon={faCartShopping} />
                             </div>) : null}
+                            </div>
                           </div>
                         );
                       })}

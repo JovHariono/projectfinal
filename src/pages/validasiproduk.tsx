@@ -39,6 +39,7 @@ const ValidasiProduk: React.FunctionComponent<IValidasiProdukProps> = (
   const [linkGDvalidasi, setLinkGDvalidasi] = useState("");
   const [latestPostId, setLatestPostId] = useState(null);
   const [isPending, setIsPending] = useState(true);
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     axios
@@ -59,6 +60,8 @@ const ValidasiProduk: React.FunctionComponent<IValidasiProdukProps> = (
   // console.log(latestPostId)
 
   const onSubmit = (data: FormValues) => {
+    setIsLoading(true)
+
     console.log("Form Submitted", data);
 
     axios
@@ -84,7 +87,7 @@ const ValidasiProduk: React.FunctionComponent<IValidasiProdukProps> = (
         console.log(res.data);
         if (res.status === 200) {
           router.push("/");
-          console.log("berhasil");
+          alert("berhasil masukkan validasi produk")
         }
       })
       .catch((err) => {
@@ -264,7 +267,7 @@ const ValidasiProduk: React.FunctionComponent<IValidasiProdukProps> = (
                   },
                   pattern: {
                     value:
-                      /^https:\/\/drive\.google\.com\/(?:file\/d\/|open\?id=)([\w-]+)(?:\/.*)?$/,
+                      /^https:\/\/drive\.google\.com\//,
                     message:
                       "invalid gdrive format, gdrive must be like https://drive.google.com/........",
                   },
@@ -277,7 +280,8 @@ const ValidasiProduk: React.FunctionComponent<IValidasiProdukProps> = (
               <p className="error"> {errors.linkgdvalidasi?.message} </p>
             </div>
 
-            <button>Submit Validation</button>
+            { !isLoading && <button>Submit Validation</button> }
+            { isLoading && <div>Submiting Validation....</div> }
           </form>
         )}
       </div>

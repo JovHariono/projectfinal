@@ -58,7 +58,7 @@ const ItemMobil: React.FunctionComponent<IItemMobilProps> = (props) => {
             className="mySwiper"
           >
             {products.length == 0 ? (
-              <div></div>
+              <div>No Product</div>
             ) : (
               motorProductsVerified.map((product, index) => {
                 return (

@@ -59,7 +59,7 @@ const ItemMotor: React.FunctionComponent<IItemMotorProps> = (props) => {
             className="mySwiper"
           >
             {products.length == 0 ? (
-              <div></div>
+              <div>No Product</div>
             ) : (
               motorProductsVerified.map((product, index) => {
                 return (
