@@ -113,11 +113,11 @@ export default function Home() {
       </div>
       <Item />
       <div className="container-filter-harga">
-        <h2 className="ListKendaraan">List Motor</h2>
+        <h2 className="ListKendaraan">List Mobil</h2>
       </div>
       <ItemMobil />
       <div className="container-filter-harga">
-        <h2 className="ListKendaraan">List Mobil</h2>
+        <h2 className="ListKendaraan">List Motor</h2>
       </div>
       <ItemMotor />
       <div className="footer"></div>
