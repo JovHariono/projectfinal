@@ -179,7 +179,7 @@ const AdminProductVerificationDetail: React.FunctionComponent<
                 {/* <div className="containerImageIMobil"> */}
                 <Image
                   className="ImageIVerif"
-                  src={gambarprodukkiri}
+                  src={gambarprodukbpkb}
                   alt="Unknown"
                   width={0}
                   height={0}
