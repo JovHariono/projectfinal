@@ -167,6 +167,7 @@ const CreatePost: React.FunctionComponent<ICreatePostProps> = (props) => {
                 }
               }}
             />
+            <p className="error">{errors.image?.message}</p>
           </div>
 
           <div className="containerInput">
