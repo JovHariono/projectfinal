@@ -182,7 +182,7 @@ const Login: React.FunctionComponent = () => {
                       value: /^08\d{9,11}$/,
 
                       message:
-                        "Invalid phone number format, phone number must start with '08'",
+                        "Invalid phone number format, phone number must start with '08' and have 10-12 digits",
                     },
                   })}
                   value={phone}
