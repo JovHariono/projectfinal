@@ -37,6 +37,7 @@ const ListItemValidate: React.FunctionComponent<IListItemValidateProps> = (
               .then((res) => {
                 setProducts(res.data.inspection);
                 setIsLoading(false);
+                console.log(res.data.inspection);
               })
               .catch((err) => {
                 console.log(err);
@@ -82,17 +83,19 @@ const ListItemValidate: React.FunctionComponent<IListItemValidateProps> = (
                       <div className="detailLIstItemValidateRequest">
                         validation Status: {product.inspection_status}
                       </div>
-                      <div
-                        onClick={() => {
-                          router.push({
-                            pathname: "/editvalidateproduct",
-                            query: { inspectionId: product.inspection_id },
-                          });
-                        }}
-                        className="editValidateProduct"
-                      >
-                        <FontAwesomeIcon icon={faPen} />
-                      </div>
+                      {product.inspection_status !== "Validated" && (
+                        <div
+                          onClick={() => {
+                            router.push({
+                              pathname: "/editvalidateproduct",
+                              query: { inspectionId: product.inspection_id },
+                            });
+                          }}
+                          className="editValidateProduct"
+                        >
+                          <FontAwesomeIcon icon={faPen} />
+                        </div>
+                      )}
                     </div>
                   </div>
                 );
