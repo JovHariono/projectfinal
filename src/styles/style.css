@@ -70,7 +70,7 @@ a {
   height: 5rem;
 }
 
-.navLeftTru{
+.navLeftTru {
   display: flex;
   gap: 3rem;
 }
@@ -116,7 +116,7 @@ a {
   border-radius: 5%;
 }
 
-.iconUserDetail{
+.iconUserDetail {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -637,19 +637,17 @@ textarea {
   position: relative;
 }
 
-.containerEditUserProduct{
+.containerEditUserProduct {
   display: flex;
-  justify-content: flex-end ;
+  justify-content: flex-end;
   gap: 1.5rem;
   padding-right: 1rem;
 }
 
 .editUserProduct {
-  
 }
 
-.editUserProduct2{
-  
+.editUserProduct2 {
 }
 
 .editUserProduct2:hover {
@@ -682,14 +680,14 @@ textarea {
   cursor: pointer;
 }
 
-.containerListPageMobilItem{
+.containerListPageMobilItem {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20rem;
 }
 
-.listPageMobilItem{
+.listPageMobilItem {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -700,7 +698,7 @@ textarea {
   color: #222222;
 }
 
-.listPageMobilItemIcon{
+.listPageMobilItemIcon {
   font-size: 3rem;
 }
 
@@ -818,12 +816,12 @@ p {
   /* padding-top: 3rem; */
 }
 
-.containerProductSold{
+.containerProductSold {
   padding-left: 1.5rem;
   padding-bottom: 1rem;
 }
 
-.productSold{
+.productSold {
   background-color: #a90000;
   width: 40%;
   display: flex;
@@ -833,7 +831,7 @@ p {
   color: white;
 }
 
-.productSoldDetail{
+.productSoldDetail {
   background-color: #a90000;
   width: 60%;
   display: flex;
@@ -842,7 +840,7 @@ p {
   color: white;
 }
 
-.containerProductSoldDetail{
+.containerProductSoldDetail {
   padding-top: 0.5rem;
 }
 
@@ -874,7 +872,7 @@ p {
   padding: 5px 10px;
 }
 
-.verifSellerRequested{
+.verifSellerRequested {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -883,7 +881,7 @@ p {
   padding: 5px 10px;
 }
 
-.verifSellerValidated{
+.verifSellerValidated {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -956,23 +954,36 @@ p {
   color: rgb(46, 170, 46);
 }
 
-.verifiedSellerIcon{
+.verifiedSellerIcon {
   color: red;
+}
+
+.verifiedSellerIconDecline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgb(187, 7, 7);
+}
+
+.textVerifiedSellerIcon {
+  font-size: 0.7rem;
 }
 
 .verifiedSellerIcon:hover {
   font-size: 1.8rem;
+  cursor: pointer;
 }
 
-.verifiedSellerIconRequested{
+.verifiedSellerIconRequested {
   color: #f5a623;
 }
 
-.verifiedSellerIconValidated{
+.verifiedSellerIconValidated {
   color: rgb(46, 170, 46);
 }
 
-.undefinedUserDetail{
+.undefinedUserDetail {
   color: #222222;
   text-decoration: underline;
 }
@@ -996,6 +1007,7 @@ p {
   align-items: center;
   justify-content: flex-start;
   gap: 1.2rem;
+  padding-bottom: 1rem;
 }
 
 .faDetail {
@@ -1041,6 +1053,7 @@ hr {
   align-items: center;
   height: 30rem;
 }
+
 /* userDetail */
 
 /* editdeleteproduct */
@@ -1089,7 +1102,7 @@ hr {
 }
 /* editdeleteproduct */
 
-.containerListValidate{
+.containerListValidate {
   display: flex;
   position: absolute;
   right: 0;
@@ -1162,7 +1175,7 @@ hr {
   border-radius: 1rem;
 }
 
-.editValidateProduct{
+.editValidateProduct {
   width: 5%;
 }
 
@@ -1389,17 +1402,16 @@ hr {
   cursor: pointer;
 }
 
-
 /* productverification */
 
 /* productverificationdetail */
-.containerAdminProductVerificationDetail{
+.containerAdminProductVerificationDetail {
   display: flex;
   justify-content: center;
   padding-top: 1rem;
 }
 
-.containerContentAdminProductVerificationDetail{
+.containerContentAdminProductVerificationDetail {
   display: flex;
   justify-content: center;
   border: solid;
@@ -1408,20 +1420,20 @@ hr {
   padding: 2rem;
 }
 
-.containerlinkgdriveAdminProductVerificationDetail{
+.containerlinkgdriveAdminProductVerificationDetail {
   padding-bottom: 2rem;
   padding-top: 0.5rem;
 }
 /* productverificationdetail */
 
 /* soldproduct */
-.containerUtamaSoldProduct{
+.containerUtamaSoldProduct {
   padding-top: 1rem;
   display: flex;
   justify-content: center;
 }
 
-.containerSoldProduct{
+.containerSoldProduct {
   width: 80%;
   display: flex;
   justify-content: center;
@@ -1431,24 +1443,20 @@ hr {
 }
 /* soldproduct */
 
+@media only screen and (max-width: 1200px) {
+  .containerMapItemDetail {
+    width: 85%;
+  }
 
-@media only screen and (max-width: 1200px){
-.containerMapItemDetail{
-  width: 85%;
-}
+  .contentKiri {
+    width: 30%;
+  }
 
-.contentKiri{
-  width: 30%;
-}
+  .containerLinkBeliMobil {
+    width: 36%;
+  }
 
-.containerLinkBeliMobil{
-  width: 36%;
-}
-
-.detailsContainer{
-  width: 25%;
-}
-
-
-
+  .detailsContainer {
+    width: 25%;
+  }
 }

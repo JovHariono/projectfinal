@@ -7,6 +7,7 @@ import {
   faCircleCheck,
   faPen,
   faCartShopping,
+  faTrash
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect } from "react";
@@ -30,6 +31,7 @@ const UserDetail: React.FunctionComponent<IUserDetailProps> = (props) => {
   const [isLoading, setIsLoading] = useState(true);
   const [isVerifPending, setIsVerifPending] = useState(true);
   const [isVerified, setIsVerified] = useState("");
+  const [isUserVeridId, setIsUserVeridId] = useState("");
   const [isSold, setIsSold] = useState(false);
   const router = useRouter();
 
@@ -78,6 +80,7 @@ const UserDetail: React.FunctionComponent<IUserDetailProps> = (props) => {
               .then((res) => {
                 setIsVerified(res.data.status);
                 setIsVerifPending(false);
+                setIsUserVeridId(res.data.id)
               })
               .catch((err) => {
                 console.log(err);
@@ -87,7 +90,19 @@ const UserDetail: React.FunctionComponent<IUserDetailProps> = (props) => {
       .catch((err) => console.log(err.message));
   }, [id]);
 
-  // console.log(isSold);
+  const deleteUserVerif = () => {
+    axios
+      .delete(`http://localhost:8001/user-verifications/${isUserVeridId}`, {
+        withCredentials: true
+      })
+      .then((res) => {
+        console.log(res.data)
+        router.reload()
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
 
   return (
     <div className="container">
@@ -182,6 +197,19 @@ const UserDetail: React.FunctionComponent<IUserDetailProps> = (props) => {
                           <FontAwesomeIcon icon={faCircleCheck} />{" "}
                         </div>
                       )}
+                      {isVerified === "Declined" && (
+                        <div className="verifiedSellerIcon">
+                          <div
+                            className="verifiedSellerIconDecline"
+                            onClick={deleteUserVerif}
+                          >
+                            <FontAwesomeIcon icon={faTrash} />
+                            <div className="textVerifiedSellerIcon">
+                              Declined,<br/> click to create new req
+                            </div>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -238,31 +266,40 @@ const UserDetail: React.FunctionComponent<IUserDetailProps> = (props) => {
                               </div>
                             </div>
                             <div>
-                              { product.status ? <div className="containerProductSold"> <div className="productSold">Product Sold</div></div> : null }
+                              {product.status ? (
+                                <div className="containerProductSold">
+                                  {" "}
+                                  <div className="productSold">
+                                    Product Sold
+                                  </div>
+                                </div>
+                              ) : null}
                             </div>
                             <div className="containerEditUserProduct">
-                            <div
-                              className="editUserProduct"
-                              onClick={() => {
-                                router.push({
-                                  pathname: "editdeleteproduct",
-                                  query: { productId: product.id },
-                                });
-                              }}
-                            >
-                              <FontAwesomeIcon icon={faPen} />
-                            </div>
-                            { !product.status ? (<div
-                              className="editUserProduct2"
-                              onClick={() => {
-                                router.push({
-                                  pathname: "soldproduct",
-                                  query: { productId: product.id },
-                                });
-                              }}
-                            >
-                              <FontAwesomeIcon icon={faCartShopping} />
-                            </div>) : null}
+                              <div
+                                className="editUserProduct"
+                                onClick={() => {
+                                  router.push({
+                                    pathname: "editdeleteproduct",
+                                    query: { productId: product.id },
+                                  });
+                                }}
+                              >
+                                <FontAwesomeIcon icon={faPen} />
+                              </div>
+                              {!product.status ? (
+                                <div
+                                  className="editUserProduct2"
+                                  onClick={() => {
+                                    router.push({
+                                      pathname: "soldproduct",
+                                      query: { productId: product.id },
+                                    });
+                                  }}
+                                >
+                                  <FontAwesomeIcon icon={faCartShopping} />
+                                </div>
+                              ) : null}
                             </div>
                           </div>
                         );

@@ -212,6 +212,7 @@ const EditDeleteProduct: React.FunctionComponent<IEditDeleteProductProps> = (
               id="brand"
               {...register("brand")}
               value={brand}
+              placeholder={oldBrand}
               onChange={(e) => SetBrand(e.target.value)}
             />
           </div>
@@ -222,6 +223,7 @@ const EditDeleteProduct: React.FunctionComponent<IEditDeleteProductProps> = (
               type="text"
               id="name"
               {...register("name")}
+              placeholder={oldName}
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
@@ -236,6 +238,7 @@ const EditDeleteProduct: React.FunctionComponent<IEditDeleteProductProps> = (
                 // valueAsNumber: true,
               })}
               value={price}
+              placeholder={oldPrice}
               onChange={(e) => setPrice(e.target.value)}
             />
           </div>
@@ -270,6 +273,7 @@ const EditDeleteProduct: React.FunctionComponent<IEditDeleteProductProps> = (
               cols={65}
               {...register("description")}
               value={description}
+              placeholder={oldDescription}
               onChange={(e) => setDescription(e.target.value)}
             ></textarea>
           </div>
