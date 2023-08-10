@@ -53,7 +53,7 @@ const ListItemValidate: React.FunctionComponent<IListItemValidateProps> = (
     <div className="container">
       <Navbar />
       <div className="containerListItemValidate">
-        <div className="textListItemValidate">List Request Validation</div>
+        <div className="textListItemValidate">Daftar Post User</div>
         {isLoading && <div> Loading... </div>}
         {!isLoading && (
           <div className="containerUtamaContentListItemValidate">

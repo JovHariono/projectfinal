@@ -94,7 +94,7 @@ const DetailPost: React.FunctionComponent<IDetailPostProps> = (props) => {
                 {status ? (
                   <div className="isVerified"> verified </div>
                 ) : (
-                  <div className="notVerifed"> Not Yet Verified </div>
+                  <div className="notVerifed"> Requested </div>
                 )}
                 { !statusSold ? null : (
                   <div className="containerProductSoldDetail">

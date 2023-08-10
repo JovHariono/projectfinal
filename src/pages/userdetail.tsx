@@ -116,7 +116,7 @@ const UserDetail: React.FunctionComponent<IUserDetailProps> = (props) => {
           <div className="containerListValidate">
             <div className="listValidate">
               <Link className="linkListValidate" href="/listitemvalidate">
-                List Validate Item
+                Daftar Post User
               </Link>
             </div>
           </div>
