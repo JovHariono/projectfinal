@@ -44,6 +44,7 @@ const DetailPost: React.FunctionComponent<IDetailPostProps> = (props) => {
         setIsPending(true);
         setStatus(res.data.product.validation_status);
         setStatusSold(res.data.product.status);
+        console.log(res.data)
 
         {
           isPending &&
@@ -94,7 +95,7 @@ const DetailPost: React.FunctionComponent<IDetailPostProps> = (props) => {
                 {status ? (
                   <div className="isVerified"> verified </div>
                 ) : (
-                  <div className="notVerifed"> Requested </div>
+                  <div className="notVerifed"> not verified </div>
                 )}
                 { !statusSold ? null : (
                   <div className="containerProductSoldDetail">

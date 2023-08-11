@@ -777,7 +777,7 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f5a623;
+  background-color: rgb(187, 7, 7);
   width: 60%;
   border-radius: 1rem;
 }
