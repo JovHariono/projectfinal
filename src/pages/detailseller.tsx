@@ -146,7 +146,6 @@ const DetailSeller: React.FunctionComponent<IDetailSellerProps> = (props) => {
           </form>
         </div>
       )}
-      <div className="footer"></div>
     </div>
   );
 };
