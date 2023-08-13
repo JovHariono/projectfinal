@@ -194,7 +194,7 @@ const CreatePost: React.FunctionComponent<ICreatePostProps> = (props) => {
         </form>
         {/* <DevTool control={control} /> */}
       </div>
-      <div className="footer"></div>
+      
     </div>
   );
 };

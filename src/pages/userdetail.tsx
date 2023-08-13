@@ -312,7 +312,7 @@ const UserDetail: React.FunctionComponent<IUserDetailProps> = (props) => {
           </div>
         </div>
       </div>
-      <div className="footer"></div>
+      
     </div>
   );
 };

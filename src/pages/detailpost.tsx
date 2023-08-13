@@ -155,7 +155,7 @@ const DetailPost: React.FunctionComponent<IDetailPostProps> = (props) => {
           </p>
         </div>
       </div>
-      <div className="footer"></div>
+      
     </div>
   );
 };

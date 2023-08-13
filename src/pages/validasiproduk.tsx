@@ -285,7 +285,7 @@ const ValidasiProduk: React.FunctionComponent<IValidasiProdukProps> = (
           </form>
         )}
       </div>
-      <div className="footer"></div>
+      
     </div>
   );
 };
