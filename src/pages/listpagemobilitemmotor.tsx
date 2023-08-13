@@ -99,6 +99,7 @@ const ListPageMobilItemMotor: React.FunctionComponent<
           ))}
         </div>
       </div>
+      <div className="footer"></div>
     </div>
   );
 };

@@ -104,6 +104,7 @@ const ListItemValidate: React.FunctionComponent<IListItemValidateProps> = (
           </div>
         )}
       </div>
+      <div className="footer"></div>
     </div>
   );
 };

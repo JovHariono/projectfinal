@@ -281,7 +281,7 @@ const EditDeleteProduct: React.FunctionComponent<IEditDeleteProductProps> = (
           {/* {isPending && <button>Submiting Product...</button>} */}
         </form>
       </div>
-      
+      <div className="footer"></div>
     </div>
   );
 };

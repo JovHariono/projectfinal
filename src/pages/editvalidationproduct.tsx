@@ -273,7 +273,7 @@ const EditValidationProduct: React.FunctionComponent<
           {/* {isPending && <button>Submiting Product...</button>} */}
         </form>
       </div>
-      
+      <div className="footer"></div>
     </div>
   );
 };

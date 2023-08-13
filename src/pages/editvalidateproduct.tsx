@@ -381,7 +381,7 @@ const EditValidateProduct: React.FunctionComponent<
             <button>Submit Validation</button>
           </form>
       </div>
-      
+      <div className="footer"></div>
     </div>
   );
 };

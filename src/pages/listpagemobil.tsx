@@ -108,7 +108,7 @@ const ListPageMobil: React.FunctionComponent<IListPageMobilProps> = (props) => {
           ))}
         </div>
       </div>
-      {/* <div className="footer"></div> */}
+      <div className="footer"></div>
     </div>
   );
 };

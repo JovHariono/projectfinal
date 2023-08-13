@@ -120,7 +120,7 @@ export default function Home() {
         <h2 className="ListKendaraan">List Motor</h2>
       </div>
       <ItemMotor />
-      
+      <div className="footer"></div>
     </div>
   );
 }
