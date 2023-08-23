@@ -29,8 +29,6 @@ const AdminProductVerification: React.FunctionComponent<
 
   const productRequest = products.filter((product) => product.inspection_status === "Requested" );
 
-  console.log(productRequest)
-
   return (
     <div className="container">
       <Navbar />
