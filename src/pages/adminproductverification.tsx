@@ -19,7 +19,6 @@ const AdminProductVerification: React.FunctionComponent<
         withCredentials: true,
       })
       .then((res) => {
-        console.log(res.data.inspection)
         setProducts(res.data.inspection);
       })
       .catch((err) => {

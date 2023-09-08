@@ -1,18 +1,9 @@
-import Head from "next/head";
 import Image from "next/image";
-import { Inter } from "next/font/google";
 import React from "react";
+import Link from "next/link";
 import { useEffect, useState } from "react";
-import { useSession } from "next-auth/react";
+import axios from "axios";
 
-import {
-  faCartShopping,
-  faCircleUser,
-  faCar,
-} from "@fortawesome/free-solid-svg-icons";
-
-import hmlogo from "../../public/assets/LogoHome.png";
-import usrlogo from "../../public/assets/User.png";
 import slblogo1 from "../../public/assets/jualkendaraan.png";
 import slblogo2 from "../../public/assets/belikendaraan.png";
 import benlogo1 from "../../public/assets/garansi.png";
@@ -22,15 +13,9 @@ import benlogo4 from "../../public/assets/hargabersaing.png";
 import Dashboard from "../cards/Dashboard";
 
 import Item from "./item";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Link from "next/link";
 import Navbar from "./navbar";
-import axios from "axios";
-import { log } from "console";
 import ItemMobil from "./itemMobil";
 import ItemMotor from "./itemMotor";
-
-const inter = Inter({ subsets: ["latin"] });
 
 const dashItems = [
   {
@@ -58,7 +43,7 @@ const dashItems = [
 export default function Home() {
   const [name, setName] = useState("");
   const [user, setUser] = useState(false);
-  const [role, SetRole] = useState("")
+  const [role, SetRole] = useState("");
 
   useEffect(() => {
     axios
@@ -67,9 +52,9 @@ export default function Home() {
       })
       .then((res) => {
         // console.log(res.data.user);
-        setName(res.data.user.username)
-        SetRole(res.data.user.role)
-        setUser(true)
+        setName(res.data.user.username);
+        SetRole(res.data.user.role);
+        setUser(true);
       })
       .catch((err) => console.log(err.message));
   }, []);

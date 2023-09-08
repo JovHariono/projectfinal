@@ -35,8 +35,7 @@ const DetailSeller: React.FunctionComponent<IDetailSellerProps> = (props) => {
   }, []);
 
   const onSubmit = (data: FormValues) => {
-    console.log("Form Submitted", data);
-    console.log(postcode)
+    setIsPending(true);
     axios
       .post(
         "http://localhost:8001/address",
@@ -51,8 +50,7 @@ const DetailSeller: React.FunctionComponent<IDetailSellerProps> = (props) => {
           // headers: { "Content-Type": "multipart/form-data" },
         }
       )
-      .then((res) => {
-        setIsPending(true);
+      .then((res) => {        
         router.push("/userdetail")
       })
       .catch((err) => {

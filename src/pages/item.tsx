@@ -29,7 +29,7 @@ const Item: React.FunctionComponent<IItemProps> = (props) => {
       .get("http://localhost:8001/products")
       .then((res) => {
         setProducts(res.data.data);
-        setIsPending(false);
+        setIsPending(false);        
       })
       .catch((err) => console.log(err));
   }, []);

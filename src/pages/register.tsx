@@ -70,7 +70,7 @@ const Login: React.FunctionComponent = () => {
         <div className="containerContentK">
           <div className="Header1LoginRegister">Welcome !</div>
           <div className="Header2LoginRegister">Sign in to</div>
-          <div className="subHeader1LoginRegister">lorem ipsum is simply</div>
+          <div className="subHeader1LoginRegister"></div>
           <div className="containerFormReg">
             <form onSubmit={handleSubmit(regSubmit)}>
               <div className="containerInput">

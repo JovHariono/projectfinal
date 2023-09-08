@@ -38,7 +38,6 @@ const CreatePost: React.FunctionComponent<ICreatePostProps> = (props) => {
     // const formdata = new FormData();
 
     setIsPending(true);
-    // console.log("Form Submmitted", data);
 
     axios
       .post(
@@ -58,7 +57,6 @@ const CreatePost: React.FunctionComponent<ICreatePostProps> = (props) => {
       )
       .then((res) => {
         if (res.status === 200) {
-          console.log("backend", res.data.data);
           setIsPending(false);
           router.push("/validasiproduk");
           alert("posting produk berhasil");

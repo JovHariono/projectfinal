@@ -77,7 +77,6 @@ const AdminProductVerificationDetail: React.FunctionComponent<
         }
       )
       .then((res) => {
-        // console.log(res)
         if (res.status === 200) {
           alert("Verify Product Berhasil");
           router.push("/adminproductverification");

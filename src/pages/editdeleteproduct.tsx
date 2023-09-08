@@ -25,7 +25,7 @@ const EditDeleteProduct: React.FunctionComponent<IEditDeleteProductProps> = (
   const { productId } = router.query;
   const [id, setId] = useState("");
   const [isPending, setIsPending] = useState(false);
-  const [isValue, setIsValue] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [type, setType] = useState("");
   const [brand, SetBrand] = useState("");
   const [name, setName] = useState("");
@@ -77,6 +77,7 @@ const EditDeleteProduct: React.FunctionComponent<IEditDeleteProductProps> = (
 
   const postSubmited = (data: postValues) => {
     console.log("Form Submited", data);
+    setIsLoading(true)
 
     if (type.length === 0) {
       setType(oldType);
@@ -114,7 +115,6 @@ const EditDeleteProduct: React.FunctionComponent<IEditDeleteProductProps> = (
         }
       )
       .then((res) => {
-        console.log(res.status);
         if(res.status === 200){
           alert("Update Berhasil")
           router.push("/userdetail")
@@ -126,6 +126,7 @@ const EditDeleteProduct: React.FunctionComponent<IEditDeleteProductProps> = (
   };
 
   const deleteProduct = () => {
+    setIsLoading(true)
     axios
       .delete(`http://localhost:8001/products/${productId}`, {
         withCredentials: true,
@@ -184,10 +185,14 @@ const EditDeleteProduct: React.FunctionComponent<IEditDeleteProductProps> = (
             <div>Deskripsi Produk:</div>
             <div> {oldDescription} </div>
           </div>
-          <button onClick={deleteProduct} className="deleteProduct">
+          { !isLoading && <button onClick={deleteProduct} className="deleteProduct">
             {" "}
             Delete Product{" "}
-          </button>
+          </button>}
+          { isLoading && <button onClick={deleteProduct} className="deleteProduct">
+            {" "}
+            Delete Product{" "}
+          </button>}
         </div>
         <form className="formEditDelete" onSubmit={handleSubmit(postSubmited)}>
           <div className="judulForm">Form Edit / Delete kendaraan</div>
@@ -277,8 +282,8 @@ const EditDeleteProduct: React.FunctionComponent<IEditDeleteProductProps> = (
               onChange={(e) => setDescription(e.target.value)}
             ></textarea>
           </div>
-          <button>Submit Product</button>
-          {/* {isPending && <button>Submiting Product...</button>} */}
+          { !isLoading && <button>Submit Product</button> }
+          { isLoading && <button>Submit Product</button> }
         </form>
       </div>
       <div className="footer"></div>

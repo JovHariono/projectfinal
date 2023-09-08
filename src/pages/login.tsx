@@ -65,7 +65,7 @@ const Login: React.FunctionComponent<ILoginProps> = (props) => {
         <div className="containerContentK">
           <div className="Header1LoginRegister">Welcome !</div>
           <div className="Header2LoginRegister">Sign in to</div>
-          <div className="subHeader1LoginRegister">lorem ipsum is simply</div>
+          <div className="subHeader1LoginRegister"></div>
           <div className="containerFormLogin">
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="containerInput">

@@ -44,7 +44,6 @@ const DetailPost: React.FunctionComponent<IDetailPostProps> = (props) => {
         setIsPending(true);
         setStatus(res.data.product.validation_status);
         setStatusSold(res.data.product.status);
-        console.log(res.data)
 
         {
           isPending &&

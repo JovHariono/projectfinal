@@ -52,6 +52,7 @@ const EditValidateProduct: React.FunctionComponent<
   );
   const [OldLinkGDvalidasi, setOldLinkGDvalidasi] = useState("");
   const [isPending, setIsPending] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
 
   const [gambarprodukdepan, setGambarProdukDepan] = useState<File | null>(null);
   const [gambarprodukbelakang, setGambarProdukBelakang] = useState<File | null>(
@@ -87,6 +88,7 @@ const EditValidateProduct: React.FunctionComponent<
 
   const onSubmit = (data: FormValues) => {
     console.log("Form Submitted", data);
+    setIsLoading(true)
 
     axios
         .put(`http://localhost:8001/product-inspections/${inspectionId}`, {
@@ -378,7 +380,8 @@ const EditValidateProduct: React.FunctionComponent<
               <p className="error"> {errors.linkgdvalidasi?.message} </p>
             </div>
 
-            <button>Submit Validation</button>
+            { !isLoading && <button>Submit Validation</button> }
+            { isLoading && <button>Submitting... Validation</button> }
           </form>
       </div>
       <div className="footer"></div>

@@ -23,7 +23,6 @@ const AdminUserVerificationDetail: React.FunctionComponent<
         withCredentials: true,
       })
       .then((res) => {
-        // console.log(res.data.data);
         setIud(res.data.data.iud);
         setSitu(res.data.data.situ);
         setSkdu(res.data.data.skdu);
@@ -66,7 +65,6 @@ const AdminUserVerificationDetail: React.FunctionComponent<
         }
       )
       .then((res) => {
-        // console.log(res)
         if (res.status === 200) {
           alert("Verify User Berhasil");
           router.push("/adminuserverification");

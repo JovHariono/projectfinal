@@ -21,7 +21,6 @@ const ValidasiSeller: React.FunctionComponent<IValidasiSellerProps> = (
   const { register, handleSubmit, formState } = form;
   const { errors } = formState;
   const [id, setId] = useState(null);
-  const [idSeller, setIdSeller] = useState("");
   const [isPending, setIsPending] = useState(false);
   const [skdu, setSkdu] = useState<File | null>(null);
   const [iud, setIud] = useState<File | null>(null);
@@ -41,6 +40,7 @@ const ValidasiSeller: React.FunctionComponent<IValidasiSellerProps> = (
 
   const onSubmit = (data: FormValues) => {
     console.log("Form Submitted", data);
+    setIsPending(true);
     axios
       .post(
         "http://localhost:8001/user-verifications",
@@ -57,7 +57,6 @@ const ValidasiSeller: React.FunctionComponent<IValidasiSellerProps> = (
       )
       .then((res) => {
         console.log("Posting data", res);
-        setIsPending(true);
         router.push("/userdetail")
       })
       .catch((err) => {
