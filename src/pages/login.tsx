@@ -24,6 +24,7 @@ const Login: React.FunctionComponent<ILoginProps> = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [redirect, setRedirect] = useState(false);
+  const [message, setMessage] = useState("")
 
   const onSubmit = (data: typeLogin) => {
     console.log("Form Submitted", data);
@@ -44,18 +45,21 @@ const Login: React.FunctionComponent<ILoginProps> = (props) => {
       )
       .then((res) => {
         // console.log(res.data);
-        console.log(res);
+        // console.log(res);
         if (res.status === 200) {
           alert("login berhasil");
           router.push("/");
         }
       })
       .catch((err) => {
+        console.log(err.response.data.message)
         if (err.message === "Network Error") {
-          alert("Please try again ");
-        } else {
-          alert("Wrong username/password");
+          alert("Please try again");
         }
+        else {
+          setMessage(err.response.data.message)      
+        }
+        alert(message)
       });
   };
 

@@ -48,7 +48,6 @@ const Login: React.FunctionComponent = () => {
   }, [password, errors.password]);
 
   const regSubmit = (data: regValues) => {
-    console.log("Form submitted", data);
 
     axios
       .post("http://localhost:8001/auth/register", {
@@ -58,10 +57,13 @@ const Login: React.FunctionComponent = () => {
         phone,
         // address,
       })
-      .then((res) => console.log(res.data))
+      .then((res) => {
+        if(res.status === 200){
+          alert("Register berhasil, check email untuk konfirmasi")
+          router.push("login")
+        }
+      })
       .catch((err) => console.log(err.message));
-
-    router.push("/login");
   };
 
   return (
@@ -85,7 +87,7 @@ const Login: React.FunctionComponent = () => {
                     },
                     pattern: {
                       value:
-                        /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+).com$/,
+                        /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)/,
 
                       message:
                         "Invalid email format, email must be like 'admin@example.com'",
