@@ -60,7 +60,6 @@ const Login: React.FunctionComponent = () => {
       .then((res) => {
         if(res.status === 200){
           alert("Register berhasil, check email untuk konfirmasi")
-          router.push("login")
         }
       })
       .catch((err) => console.log(err.message));
