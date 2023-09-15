@@ -46,45 +46,57 @@ const AdminProductVerificationDetail: React.FunctionComponent<
   }, []);
 
   const cancelSubmit = () => {
-    axios
-      .put(
-        `http://localhost:8001/product-inspections/decline/${productId}`,
-        {},
-        {
-          withCredentials: true,
-          headers: { "Content-Type": "multipart/form-data" },
-        }
-      )
-      .then((res) => {
-        if (res.status === 200) {
-          alert("Decline Product Berhasil");
-          router.push("/adminproductverification");
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    const shoudlDeclineProduct = window.confirm(
+      "Are you sure want to decline this product?"
+    );
+
+    if (shoudlDeclineProduct) {
+      axios
+        .put(
+          `http://localhost:8001/product-inspections/decline/${productId}`,
+          {},
+          {
+            withCredentials: true,
+            headers: { "Content-Type": "multipart/form-data" },
+          }
+        )
+        .then((res) => {
+          if (res.status === 200) {
+            alert("Decline Product Berhasil");
+            router.push("/adminproductverification");
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   };
 
   const verifySubmit = () => {
-    axios
-      .put(
-        `http://localhost:8001/product-inspections/validate/${productId}`,
-        {},
-        {
-          withCredentials: true,
-          headers: { "Content-Type": "multipart/form-data" },
-        }
-      )
-      .then((res) => {
-        if (res.status === 200) {
-          alert("Verify Product Berhasil");
-          router.push("/adminproductverification");
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    const shouldVerifyProduct = window.confirm(
+      "Are you sure want to verify product?"
+    );
+
+    if (shouldVerifyProduct) {
+      axios
+        .put(
+          `http://localhost:8001/product-inspections/validate/${productId}`,
+          {},
+          {
+            withCredentials: true,
+            headers: { "Content-Type": "multipart/form-data" },
+          }
+        )
+        .then((res) => {
+          if (res.status === 200) {
+            alert("Verify Product Berhasil");
+            router.push("/adminproductverification");
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   };
 
   return (
@@ -189,7 +201,7 @@ const AdminProductVerificationDetail: React.FunctionComponent<
               <div className="containerDetailContentAdminUserVerificationDetail">
                 G-Drive:
                 <div className="containerlinkgdriveAdminProductVerificationDetail">
-                { linkGDvalidasi }
+                  {linkGDvalidasi}
                 </div>
               </div>
 

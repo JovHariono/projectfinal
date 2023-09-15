@@ -34,45 +34,53 @@ const AdminUserVerificationDetail: React.FunctionComponent<
   }, []);
 
   const cancelSubmit = () => {
-    axios
-      .put(
-        `http://localhost:8001/user-verifications/decline/${verifId}`,
-        {},
-        {
-          withCredentials: true,
-          headers: { "Content-Type": "multipart/form-data" },
-        }
-      )
-      .then((res) => {
-        if (res.status === 200) {
-          alert("Decline User Berhasil");
-          router.push("/adminuserverification");
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    const shouldDecline = window.confirm("Are you sure want to decline?");
+
+    if (shouldDecline) {
+      axios
+        .put(
+          `http://localhost:8001/user-verifications/decline/${verifId}`,
+          {},
+          {
+            withCredentials: true,
+            headers: { "Content-Type": "multipart/form-data" },
+          }
+        )
+        .then((res) => {
+          if (res.status === 200) {
+            alert("Decline User Berhasil");
+            router.push("/adminuserverification");
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   };
 
   const verifySubmit = () => {
-    axios
-      .put(
-        `http://localhost:8001/user-verifications/verify/${verifId}`,
-        {},
-        {
-          withCredentials: true,
-          headers: { "Content-Type": "multipart/form-data" },
-        }
-      )
-      .then((res) => {
-        if (res.status === 200) {
-          alert("Verify User Berhasil");
-          router.push("/adminuserverification");
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    const shouldVerify = window.confirm("Are you sure want to verify?");
+
+    if (shouldVerify) {
+      axios
+        .put(
+          `http://localhost:8001/user-verifications/verify/${verifId}`,
+          {},
+          {
+            withCredentials: true,
+            headers: { "Content-Type": "multipart/form-data" },
+          }
+        )
+        .then((res) => {
+          if (res.status === 200) {
+            alert("Verify User Berhasil");
+            router.push("/adminuserverification");
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   };
 
   return (

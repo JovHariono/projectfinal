@@ -42,7 +42,7 @@ const EditDeleteProduct: React.FunctionComponent<IEditDeleteProductProps> = (
 
   const form = useForm<postValues>();
   const { register, handleSubmit, formState } = form;
-  const { errors } = formState
+  const { errors } = formState;
 
   useEffect(() => {
     axios
@@ -76,8 +76,7 @@ const EditDeleteProduct: React.FunctionComponent<IEditDeleteProductProps> = (
   }, [id]);
 
   const postSubmited = (data: postValues) => {
-    console.log("Form Submited", data);
-    setIsLoading(true)
+    setIsLoading(true);
 
     if (type.length === 0) {
       setType(oldType);
@@ -98,49 +97,61 @@ const EditDeleteProduct: React.FunctionComponent<IEditDeleteProductProps> = (
       setDescription(oldDescription);
     }
 
-    axios
-      .put(
-        `http://localhost:8001/products/${productId}`,
-        {
-          type: type || oldType,
-          brand: brand || oldBrand,
-          name: name || oldName,
-          price: price || oldPrice,
-          image: image || oldImage,
-          description: description || oldDescription,
-        },
-        {
-          withCredentials: true,
-          headers: { "Content-Type": "multipart/form-data" },
-        }
-      )
-      .then((res) => {
-        if(res.status === 200){
-          alert("Update Berhasil")
-          router.push("/userdetail")
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    const shouldUpdate = window.confirm(
+      "Are you sure want to update this product?"
+    );
+
+    if (shouldUpdate) {
+      axios
+        .put(
+          `http://localhost:8001/products/${productId}`,
+          {
+            type: type || oldType,
+            brand: brand || oldBrand,
+            name: name || oldName,
+            price: price || oldPrice,
+            image: image || oldImage,
+            description: description || oldDescription,
+          },
+          {
+            withCredentials: true,
+            headers: { "Content-Type": "multipart/form-data" },
+          }
+        )
+        .then((res) => {
+          if (res.status === 200) {
+            alert("Update Berhasil");
+            router.push("/userdetail");
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   };
 
   const deleteProduct = () => {
-    setIsLoading(true)
-    axios
-      .delete(`http://localhost:8001/products/${productId}`, {
-        withCredentials: true,
-        headers: { "Content-Type": "multipart/form-data" },
-      })
-      .then((res) => {
-        if (res.status === 200) {
-          alert("berhasil delete data");
-          router.push("/userdetail");
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    const shouldDelete = window.confirm(
+      "Are you sure you want to delete this product?"
+    );
+
+    if (shouldDelete) {
+      setIsLoading(true);
+      axios
+        .delete(`http://localhost:8001/products/${productId}`, {
+          withCredentials: true,
+          headers: { "Content-Type": "multipart/form-data" },
+        })
+        .then((res) => {
+          if (res.status === 200) {
+            alert("berhasil delete data");
+            router.push("/userdetail");
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   };
 
   return (
@@ -185,14 +196,18 @@ const EditDeleteProduct: React.FunctionComponent<IEditDeleteProductProps> = (
             <div>Deskripsi Produk:</div>
             <div> {oldDescription} </div>
           </div>
-          { !isLoading && <button onClick={deleteProduct} className="deleteProduct">
-            {" "}
-            Delete Product{" "}
-          </button>}
-          { isLoading && <button onClick={deleteProduct} className="deleteProduct">
-            {" "}
-            Delete Product{" "}
-          </button>}
+          {!isLoading && (
+            <button onClick={deleteProduct} className="deleteProduct">
+              {" "}
+              Delete Product{" "}
+            </button>
+          )}
+          {isLoading && (
+            <button onClick={deleteProduct} className="deleteProduct">
+              {" "}
+              Delete Product{" "}
+            </button>
+          )}
         </div>
         <form className="formEditDelete" onSubmit={handleSubmit(postSubmited)}>
           <div className="judulForm">Form Edit / Delete kendaraan</div>
@@ -282,8 +297,8 @@ const EditDeleteProduct: React.FunctionComponent<IEditDeleteProductProps> = (
               onChange={(e) => setDescription(e.target.value)}
             ></textarea>
           </div>
-          { !isLoading && <button>Submit Product</button> }
-          { isLoading && <button>Submit Product</button> }
+          {!isLoading && <button>Submit Product</button>}
+          {isLoading && <button>Submit Product</button>}
         </form>
       </div>
       <div className="footer"></div>
